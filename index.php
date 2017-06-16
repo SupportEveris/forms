@@ -10,7 +10,8 @@ define('HTTP_HOST', 'https://' . $_SERVER['HTTP_HOST'] . '/');
 define('APP_PORT', intval($_SERVER['SERVER_PORT']) != 80 ? ':' . $_SERVER['SERVER_PORT'] : '');
 define('APP_CONFIG', APP_ROOT . 'config/');
 
-//test csm 15062017 - 1
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_PROXY, '127.0.0.1:8888');
 
 /* Drupal bootstrap procedure */ 
 //define('DRUPAL_ROOT', realpath(__DIR__ . '/../../')); 

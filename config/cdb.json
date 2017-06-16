@@ -37,7 +37,7 @@
         "idParam": "id",
         "response": "getMantenainceProfileResult"
       },
-      "update": "s",
+      "update": "UpdateAppForm",
       "update_mf": "UpdateMantenainceProfile"
     },
     "category": {
