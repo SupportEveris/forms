@@ -131,7 +131,7 @@
 </fieldset>
 <fieldset>
     <legend id="OSH">
-        Your organisation’s health and safety representative
+        Your OSH representative
         <div data-section="OSH" class="validation{$locked}"></div>
     </legend>
     
@@ -147,5 +147,25 @@
     <div class="float-right">
         {$attributes.company_osh_phonerepresentative}
         {$attributes.company_osh_emailrepresentative}
+    </div>
+</fieldset>
+<fieldset>
+    <legend id="COMMUNICATION_REP">
+        Your Communication Representative
+        <div data-section="COMMUNICATION_REP" class="validation{$locked}"></div>
+    </legend>
+
+    <div class="separatorFieldSet">&nbsp;</div>
+
+    <div id="general-text-comrep">Please provide information about your communication representive.
+    </div>
+    <div class="float-left">
+        {$attributes.comrep_osh_mediaproshfirstname}
+        {$attributes.comrep_osh_mediaproshlastname}
+    </div>
+    <div class="float-right">
+        {$attributes.comrep_osh_prefixmediaprphone}
+        {$attributes.comrep_osh_phonemediapr}
+        {$attributes.comrep_osh_emailmediapr}
     </div>
 </fieldset>

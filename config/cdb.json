@@ -23,6 +23,13 @@
         "fields": [
           "company_osh_osh_appform_osh_country"
         ]
+      },
+      "getPrefixes": {
+        "method": "getPrefixes",
+        "data": "getPrefixesResult",
+        "fields": [
+          "comrep_osh_prefixmediaprphone"
+        ]
       }
     },
     "regular_methods": {
