@@ -1,7 +1,7 @@
 <fieldset>
     <legend id="PRIMARY_CONTACT">
         Your Primary Contact
-        <div data-section="PRIMARY_CONTACT" class="validation{$locked}"></div>
+        <div data-section="START" class="validation{$locked}"></div>
     </legend>
     
     <div class="separatorFieldSet">&nbsp;</div>
@@ -13,8 +13,7 @@
         {$attributes.contact_osh_maincontactpersonlastname}
         </div>
         <div class="float-right">
-            {$attributes.contact_osh_prefixmaincontactphone}
-            {$attributes.contact_osh_mainphone}
+        {$attributes.contact_osh_mainphone}
         {if $mf}
             <div class="disabledEmailForMF">
         {/if}

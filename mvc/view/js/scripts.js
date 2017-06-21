@@ -208,6 +208,9 @@ window.onload = function () {
         if($('#osh_aboutyourrepsection').val() == true || $('#osh_aboutyourrepsection').val() == "true"){
             checkSectionsByCDB("OSH");
         }
+        if($('#osh_aboutyourcomrepsection').val() == true || $('#osh_aboutyourcomrepsection').val() == "true"){
+            checkSectionsByCDB("COMMUNICATION_REP");
+        }
         if($('#osh_tobecomeapartnersection').val() == true || $('#osh_tobecomeapartnersection').val() == "true"){
             checkSectionsByCDB("BECOME");
         }
@@ -1371,6 +1374,8 @@ $(document).ready(function () {
                 $('#osh_aboutyourceosection').val("true");
             }else if(dataSection == 'OSH'){
                 $('#osh_aboutyourrepsection').val("true");
+            }else if(dataSection == 'COMMUNICATION_REP'){
+                $('#osh_aboutyourcomrepsection').val("true");
             }else if(dataSection == 'BECOME'){
                 $('#osh_tobecomeapartnersection').val("true");
             }else if(dataSection == 'INVOLVEMENT'){
@@ -1389,6 +1394,8 @@ $(document).ready(function () {
                 $('#osh_aboutyourceosection').val("");
             }else if(dataSection == 'OSH'){
                 $('#osh_aboutyourrepsection').val("");
+            }else if(dataSection == 'COMMUNICATION_REP'){
+                $('#osh_aboutyourcomrepsection').val("");
             }else if(dataSection == 'BECOME'){
                 $('#osh_tobecomeapartnersection').val("");
             }else if(dataSection == 'INVOLVEMENT'){

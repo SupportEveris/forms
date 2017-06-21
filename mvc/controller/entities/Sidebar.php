@@ -121,6 +121,8 @@ class Sidebar extends Controller implements IController
                         $gencontactinfsection = true;
                     }elseif($name == "osh_aboutyourrepsection" && $attribute->getValue()){
                         $aboutyourrepsection = true;
+                    }elseif($name == "osh_aboutyourcomrepsection" && $attribute->getValue()){
+                        $aboutyourcomrepsection = true;
                     }
                 }
             }

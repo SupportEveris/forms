@@ -1,0 +1,32 @@
+{
+  "sections": {
+    "title": "1. Start your application",
+    "sections": {
+        "START": "Accept the appliance"
+    },
+    "sections_mf": {
+        "START": "Accept the appliance"
+    }
+  },
+  "attributes": {
+    "contact_osh_maincontactpersonfirstname": {
+      "name": "contact_osh_maincontactpersonfirstname",
+      "label": "Name of main contact person for the campaign",
+      "publicProfile": "publicProfile",
+      "section": "START",
+      "type": "checkbox",
+      "validator": "not_null"
+    },
+    "helpMessage": {
+      "name": "helpMessage",
+      "section": "START",
+      "type": "text"
+    }
+  },
+  "map": {
+    "contact_osh_maincontactpersonfirstname": "osh_firstname"
+  },
+  "map_mf": {
+    "contact_osh_maincontactpersonfirstname": "firstname"
+  }
+}

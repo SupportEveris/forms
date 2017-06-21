@@ -3,9 +3,9 @@
     "start": {
       "index": "1",
       "internal": "start",
-      "label": "Start your application",
+      "label": "Basic Requirements",
       "next": "Company",
-      "submitText": "Next - Tell us about your company",
+      "submitText": "Start your application",
       "route":"route=start",
       "subsection":"START"
     },

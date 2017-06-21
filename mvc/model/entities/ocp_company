@@ -172,6 +172,13 @@
       "type": "text",
       "validator": "not_null"
     },
+    "company_osh_prefixgeneralphone": {
+      "name": "company_osh_prefixgeneralphone",
+      "label": "Telephone prefix",
+      "placeholder": "+00",
+      "section": "GENERAL_INFORMATION",
+      "type": "dropdown"
+    },
     "company_osh_homepage": {
       "name": "company_osh_homepage",
       "label": "Homepage",
@@ -270,6 +277,13 @@
       "placeholder": "(000) 0000 0000",
       "section": "OSH",
       "type": "text"
+    },
+    "company_osh_prefixrepresentativephone": {
+      "name": "company_osh_prefixrepresentativephone",
+      "label": "Telephone prefix",
+      "placeholder": "+00",
+      "section": "OSH",
+      "type": "dropdown"
     },
     "company_osh_facebookprofile": {
       "name": "company_osh_facebookprofile",
@@ -408,7 +422,12 @@
       "placeholder": "+00",
       "section": "COMMUNICATION_REP",
       "type": "dropdown"
-    }
+    },
+     "osh_aboutyourcomrepsection": {
+       "name": "osh_aboutyourcomrepsection",
+       "section": "COMMUNICATION_REP",
+       "type": "text"
+     }
   },
   "map": {
     "company_osh_address": "osh_address",
@@ -424,7 +443,9 @@
     "company_osh_emailrepresentative": "osh_emailrepresentative",
     "company_osh_generalemail":"osh_generalemail",
     "company_osh_generalphone":"osh_generalphone",
+    "company_osh_prefixgeneralphone":"osh_prefixgeneralphone",
     "company_osh_phonerepresentative": "osh_phonerepresentative",
+    "company_osh_prefixrepresentativephone": "osh_prefixrepresentativephone",
     "company_osh_yourmissionstatement": "osh_yourmissionstatement",
     "company_osh_zipcode": "osh_zipcode",
     "company_osh_orgname": "osh_orgname",
@@ -452,6 +473,7 @@
     "osh_gencontactinfsection": "osh_gencontactinfsection",
     "osh_aboutyourceosection": "osh_aboutyourceosection",
     "osh_aboutyourrepsection": "osh_aboutyourrepsection",
+    "osh_aboutyourcomrepsection": "osh_aboutyourcomrepsection",
     "contact_osh_mainemailAux": "contact_osh_mainemailAux",
     "contact_osh_maincontactpersonfirstnameAux": "contact_osh_maincontactpersonfirstnameAux",
     "contact_osh_maincontactpersonlastnameAux": "contact_osh_maincontactpersonlastnameAux",
@@ -474,9 +496,11 @@
     "company_osh_representativeoshlastname": "osh_representativelastname",
     "company_osh_emailrepresentative": "osh_representativeemailaddress1",
     "company_osh_phonerepresentative": "osh_representativetelephone1",
+    "company_osh_prefixrepresentativephone": "osh_prefixrepresentativephone",
     "company_osh_yourmissionstatement": "osh_yourmissionstatement",
     "company_osh_zipcode": "osh_phcp",
     "company_osh_generalphone":"osh_phone1",
+    "company_osh_prefixgeneralphone":"osh_prefixgeneralphone",
     "company_osh_orgname": "osh_companyorganisationname",
     "company_osh_osh_appform_osh_country": "returnPaises",
     "company_osh_othercountries": "osh_othercountries",

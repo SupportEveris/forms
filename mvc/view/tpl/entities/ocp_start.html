@@ -1,33 +1,54 @@
 <fieldset>
     <legend id="PRIMARY_CONTACT">
-        Your Primary Contact
-        <div data-section="PRIMARY_CONTACT" class="validation{$locked}"></div>
+        Primary Contact
+        <div data-section="START" class="validation{$locked}"></div>
     </legend>
     
     <div class="separatorFieldSet">&nbsp;</div>
     
-    {if !mf && $partner_type == "current"}<div>{$attributes.contact_osh_maincontactchange}</div>{/if}
+     <!--  {if !mf && $partner_type == "current"}<div>{$attributes.contact_osh_maincontactchange}</div>{/if}-->
+ {if !$mf && $mainContactChangeCheck == true && $partner_type != "current"}<div>{$attributes.contact_osh_maincontactchange}</div>{/if} 
     <div class="main-contact-change">
         <div class="float-left">
-        {$attributes.contact_osh_maincontactpersonfirstname}
-        {$attributes.contact_osh_maincontactpersonlastname}
+            {$attributes.contact_osh_maincontactpersonfirstname}
+            {$attributes.contact_osh_maincontactpersonlastname}
+            {$attributes.contact_osh_positionmaincontactperson}
+
         </div>
-        <div class="float-right">
-            {$attributes.contact_osh_prefixmaincontactphone}
+        <div class="float-right" style="margin-top: 2%">
             {$attributes.contact_osh_mainphone}
-        {if $mf}
-            <div class="disabledEmailForMF">
-        {/if}
-        {$attributes.contact_osh_mainemail}
-        {if $mf}
-            </div>
-        {/if}
-        <!--{$attributes.contact_osh_confirm_mainemail}-->
+            {if $mf || $partner_type == "current"}
+                <div class="disabledEmailForMF">
+            {/if}
+            {$attributes.contact_osh_mainemail}
+            {if $mf}
+                </div>
+            {/if}
+            {if !$mf && $partner_type != "current" && !$locked}
+                {$attributes.contact_osh_confirm_mainemail}
+            {/if}
         </div>
     </div>
+  <div class="float-left">
+            {if !$mf && $partner_type != "current" && !$locked && $HelpMessage != "print"}
+            {$attributes.contact_osh_captcha}
+            {/if}
+        </div>
     <div class="hidden">
+        {$attributes.helpMessage}
         {$attributes.contact_osh_mainemailAux}
         {$attributes.company_osh_orgnameAux}
+        {$attributes.contact_osh_maincontactpersonfirstnameAux}
+        {$attributes.contact_osh_maincontactpersonlastnameAux}
+        {$attributes.osh_primarycontactsection}
+        {$attributes.contact_osh_maincontactpersonfirstname_clone}
+        {$attributes.contact_osh_maincontactpersonlastname_clone}
+        {$attributes.contact_osh_positionmaincontactperson_clone}
+        {$attributes.contact_osh_mainphone_clone}
+        {$attributes.contact_osh_mainemail_clone}
+        {if !$mf && $partner_type != "current" && !$locked}
+            {$attributes.contact_osh_confirm_mainemail_clone}
+        {/if}
     </div>
 </fieldset>
 {if $mf}
@@ -39,7 +60,7 @@
     
     <div class="separatorFieldSet">&nbsp;</div>
     <p id="general-text">In this section you can add additional contacts for your own organisation. These new users will be able to make changes to your organisational profile. You will always be notified of such changes</p>
-
+   
    <div id="otherUserField1" style="margin-top: -7%;">
         {$attributes.contact_osh_otherusername1}
         {$attributes.contact_osh_otherusermail1}

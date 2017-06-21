@@ -58,7 +58,8 @@ final class CDB
         // Load the data of the dropDowns
         if ($inst->cdbMap) {
             if(($loadFromCDB)||((!isset($inst->dropdowns['company_osh_orgtype']) || !$inst->dropdowns['company_osh_orgtype']['values']) && (!isset($inst->dropdowns['company_osh_bussinessector']) || !$inst->dropdowns['company_osh_bussinessector']['values'])
-                    && (!isset($inst->dropdowns['company_osh_osh_appform_osh_country']) || !$inst->dropdowns['company_osh_osh_appform_osh_country']['values']) && (!isset($inst->dropdowns['company_osh_country']) || !$inst->dropdowns['company_osh_country']['values']))){
+                    && (!isset($inst->dropdowns['company_osh_osh_appform_osh_country']) || !$inst->dropdowns['company_osh_osh_appform_osh_country']['values']) && (!isset($inst->dropdowns['company_osh_country']) || !$inst->dropdowns['company_osh_country']['values'])
+                    && (!isset($inst->dropdowns['comrep_osh_prefixmediaprphone']) || !$inst->dropdowns['comrep_osh_prefixmediaprphone']['values']))){
                 $inst->loadDropdownsData();
             }
         }

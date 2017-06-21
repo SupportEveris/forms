@@ -115,6 +115,13 @@
       "section": "PRIMARY_CONTACT",
       "type": "text"
     },
+    "contact_osh_prefixmaincontactphone": {
+          "name": "contact_osh_prefixmaincontactphone",
+          "label": "Telephone prefix",
+          "placeholder": "+00",
+          "section": "PRIMARY_CONTACT",
+          "type": "dropdown"
+    },
     "contact_osh_mainphone_clone": {
       "name": "contact_osh_mainphone_clone",
       "section": "PRIMARY_CONTACT",
@@ -246,6 +253,7 @@
     "contact_osh_positionmaincontactperson": "osh_positionmaincontactperson",
     "contact_osh_mainemail": "osh_mainemail",
     "contact_osh_mainphone": "osh_mainphone",
+    "contact_osh_prefixmaincontactphone": "osh_prefixmaincontactphone",
     "contact_osh_category": "osh_category",
     "contact_osh_leads": "osh_leads",
     "contact_osh_maincontactchange": "osh_maincontactchange",
@@ -275,6 +283,7 @@
     "contact_osh_positionmaincontactperson": "osh_position",
     "contact_osh_mainemail": "emailaddress1",
     "contact_osh_mainphone": "telephone1",
+    "contact_osh_prefixmaincontactphone": "osh_prefixmaincontactphone",
     "contact_osh_category": "osh_category",
     "contact_osh_otherusername1": "fullname1",
     "contact_osh_otherusermail1": "osh_otheruseremail1",
