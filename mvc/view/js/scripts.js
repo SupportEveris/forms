@@ -1164,6 +1164,7 @@ $(document).ready(function () {
         $('#contact_osh_otherusername1').val("");
         $('#contact_osh_otherusermail1').val("");
         $('#contact_osh_otheruserphone1').val("");
+        $('#contact_osh_otheruserprefix1').val("");
         e.preventDefault();
     });
     $("#form").on("click", "#removeOtherUser2", function (e) {
@@ -1175,6 +1176,7 @@ $(document).ready(function () {
         $('#contact_osh_otherusername2').val("");
         $('#contact_osh_otherusermail2').val("");
         $('#contact_osh_otheruserphone2').val("");
+        $('#contact_osh_otheruserprefix2').val("");
         e.preventDefault();
     });
     $("#form").on("click", "#removeOtherUser3", function (e) {
@@ -1186,6 +1188,7 @@ $(document).ready(function () {
         $('#contact_osh_otherusername3').val("");
         $('#contact_osh_otherusermail3').val("");
         $('#contact_osh_otheruserphone3').val("");
+        $('#contact_osh_otheruserprefix3').val("");
         e.preventDefault();
     });
     $("#form").on("click", "#removeOtherUser4", function (e) {
@@ -1197,6 +1200,7 @@ $(document).ready(function () {
         $('#contact_osh_otherusername4').val("");
         $('#contact_osh_otherusermail4').val("");
         $('#contact_osh_otheruserphone4').val("");
+        $('#contact_osh_otheruserprefix4').val("");
         e.preventDefault();
     });
     $("#form").on("click", "#removeOtherUser5", function (e) {
@@ -1208,6 +1212,7 @@ $(document).ready(function () {
         $('#contact_osh_otherusername5').val("");
         $('#contact_osh_otherusermail5').val("");
         $('#contact_osh_otheruserphone5').val("");
+        $('#contact_osh_otheruserprefix5').val("");
         e.preventDefault();
     });
     /**

@@ -503,6 +503,7 @@ abstract class Controller {
         $otherUsers5 = '';
         $normalValues = array();
         foreach ($fields as $key => $value) {
+            error_log($key);
             // Envío del tipo de imagen
             if ($key == "osh_logoimage" && $value != "") {
                 $keyLogoImageType = "osh_logotype";
@@ -571,30 +572,40 @@ abstract class Controller {
                 }else if($key === 'osh_otheruseremail1'){
                     $otherUsers1 .= $value . '|';
                 }else if($key === 'osh_otheruserphone1'){
+                    $otherUsers1 .= $value . '|';
+                }else if($key === 'osh_otheruserprefix1'){
                     $otherUsers1 .= $value . ')';
                 }else if($key === 'fullname2'){
                     $otherUsers2 .= '(' . str_replace(" ","+",$value) . '|';
                 }else if($key === 'osh_otheruseremail2'){
                     $otherUsers2 .= $value . '|';
                 }else if($key === 'osh_otheruserphone2'){
+                    $otherUsers2 .= $value . '|';
+                }else if($key === 'osh_otheruserprefix2'){
                     $otherUsers2 .= $value . ')';
                 }else if($key === 'fullname3'){
                     $otherUsers3 .= '(' . str_replace(" ","+",$value) . '|';
                 }else if($key === 'osh_otheruseremail3'){
                     $otherUsers3 .= $value . '|';
                 }else if($key === 'osh_otheruserphone3'){
+                    $otherUsers3 .= $value . '|';
+                }else if($key === 'osh_otheruserprefix3'){
                     $otherUsers3 .= $value . ')';
                 }else if($key === 'fullname4'){
                     $otherUsers4 .= '(' . str_replace(" ","+",$value) . '|';
                 }else if($key === 'osh_otheruseremail4'){
                     $otherUsers4 .= $value . '|';
                 }else if($key === 'osh_otheruserphone4'){
+                    $otherUsers4 .= $value . '|';
+                }else if($key === 'osh_otheruserprefix4'){
                     $otherUsers4 .= $value . ')';
                 }else if($key === 'fullname5'){
                     $otherUsers5 .= '(' . str_replace(" ","+",$value) . '|';
                 }else if($key === 'osh_otheruseremail5'){
                     $otherUsers5 .= $value . '|';
                 }else if($key === 'osh_otheruserphone5'){
+                    $otherUsers5 .= $value . '|';
+                }else if($key === 'osh_otheruserprefix5'){
                     $otherUsers5 .= $value . ')';
                 }
             }
