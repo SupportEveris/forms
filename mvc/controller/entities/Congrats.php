@@ -28,8 +28,8 @@ class Congrats extends Controller implements IController, IForm {
         $params = Parameters::getInstance();
         $renderer = new Renderer(__CLASS__);
         $renderer->setViewPath($params->get('viewEntitiesPath'));
-        $progressbar = new Progressbar(false);
-        $progressbarContent = $progressbar->execute();
+        //$progressbar = new Progressbar(false);
+        //$progressbarContent = $progressbar->execute();
         $contentArray = array(
             'appurl' => APP_URL . '?route=' . $params->get('route'),
             'homeurl' => APP_URL,
@@ -38,7 +38,7 @@ class Congrats extends Controller implements IController, IForm {
             'fullwidth' => true,
             'printable' => false,
             'HelpMessage' => "print",
-            'progressbar' => $progressbarContent,
+           // 'progressbar' => $progressbarContent,
             'category' => $params->getUrlParamValue('entity')
         );
         $content = $renderer->render($contentArray);
