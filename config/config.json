@@ -1,5 +1,5 @@
 {
-  "defaultRoute": "company",
+  "defaultRoute": "start",
   "defaultEntity": "ocp",
   "defaultPartnerType": "new",
   "defaultBundle": "MaintenanceForm",
