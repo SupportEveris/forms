@@ -1,3 +1,4 @@
+{if !$mf}
 <fieldset>
     <legend id="START">
         Start
@@ -5,8 +6,17 @@
     </legend>
 
     <div class="separatorFieldSet">&nbsp;</div>
-
+    <p id="general-text">LOREM IPSUM</p>
+    <div class="main-contact-change">
+        <div class="float-left">
+            {$attributes.contact_osh_basicrequirements}
+        </div>
+    </div>
+    </div>
 </fieldset>
+
+
+
 
 {if $HelpMessage == "print"}
 <div id="footerPrintFriendly">
@@ -25,4 +35,5 @@
         </tr>
         </tbody></table>
 </div>
+{/if}
 {/if}

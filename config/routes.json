@@ -4,7 +4,7 @@
       "index": "1",
       "internal": "start",
       "label": "Basic Requirements",
-      "next": "Company",
+      "next": "Involvement",
       "submitText": "Start your application",
       "route":"route=start",
       "subsection":"START"

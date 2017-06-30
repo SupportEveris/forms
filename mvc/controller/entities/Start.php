@@ -13,7 +13,7 @@ class Start extends Controller implements IController, IForm {
         $this->directOutput = $directOutput;
         $this->model = new Model($this->getEntityName());
         $params = Parameters::getInstance();
-        $params->set('actionType', 'submit');
+        $params->set('actionType', 'next');
     }
 
     /**

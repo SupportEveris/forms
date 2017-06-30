@@ -5,17 +5,18 @@
         "START": "Accept the appliance"
     },
     "sections_mf": {
-        "START": "Accept the appliance"
     }
   },
   "attributes": {
-    "contact_osh_maincontactpersonfirstname": {
-      "name": "contact_osh_maincontactpersonfirstname",
-      "label": "Name of main contact person for the campaign",
+    "contact_osh_basicrequirements": {
+      "name": "contact_osh_basicrequirements",
+      "label": "I accept",
       "publicProfile": "publicProfile",
       "section": "START",
       "type": "checkbox",
-      "validator": "not_null"
+      "validator": [
+        "true",
+        "not_null"]
     },
     "helpMessage": {
       "name": "helpMessage",
@@ -24,9 +25,8 @@
     }
   },
   "map": {
-    "contact_osh_maincontactpersonfirstname": "osh_firstname"
+    "contact_osh_basicrequirements": "osh_basicrequirements"
   },
   "map_mf": {
-    "contact_osh_maincontactpersonfirstname": "firstname"
   }
 }

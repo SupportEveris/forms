@@ -233,14 +233,7 @@ window.onload = function () {
             }
         });
     }
-    $(".checkbox input").each(function (id, item) {
-            //WorkAround main contact change
-            if($(item).prop('checked')){
-                $(item).val('on');
-            }else{
-                $(item).val('');
-            }
-        });
+
 }
 function checkSectionsByCDB(dataSection){
 //    setCheckSectionAttributte(dataSection,true);
@@ -440,6 +433,20 @@ function checkSectionsforValidation(elemId) {
 checkSections();
 $(document).ready(function () {
     var buttonPressed;
+
+    $(".checkbox input").each(function (id, item) {
+        //WorkAround main contact change
+        if($(item).prop('checked')){
+            $(item).val('on');
+        }else{
+            $(item).val('');
+        }
+    });
+
+    if ($('#contact_osh_basicrequirements').val() == '') {
+        $('#contact_osh_basicrequirements').parent().append('<div id="requirements_errormsg" class="error-msg">You must accept to continue</div>');
+    }
+
     $('#form form .required :input').each(function (id, item) {
         validateField(item);
     });
@@ -653,6 +660,21 @@ $(document).ready(function () {
     /**
      * Trigger the field validation
      */
+    $('.checkbox input').on({
+        change: function () {
+            if($(this).prop("checked")){
+                $(this).val('on');
+                $('#requirements_errormsg').remove();
+            }else{
+                $(this).val('');
+                if (!$('#requirements_errormsg').length) {
+                    $(this).parent().append('<div id="requirements_errormsg" class="error-msg">You must accept to continue</div>');
+                }
+            }
+        }
+    });
+
+
     $(".main-form .required input").on({
         change: function () {
             validateField(this);
@@ -792,15 +814,7 @@ $(document).ready(function () {
             validateWebFormat(this);
         }
     });
-    $('.checkbox input').on({
-        change: function () {
-            if($(this).prop("checked")){
-                $(this).val('on');
-            }else{
-                $(this).val('');
-            }
-        }
-    });
+
     $('#contact_osh_mainemail').on({
         change: function () {
             validateEmail(this);
