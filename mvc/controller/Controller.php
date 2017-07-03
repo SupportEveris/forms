@@ -21,6 +21,7 @@ abstract class Controller {
      * Execute an action defined in the specific controller
      */
     public function executeAction() {
+        error_log("EVE_JDD_AQUI10");
         $params = Parameters::getInstance();
         $action = $params->get('action');
         if (method_exists($this, $action)) {
@@ -32,6 +33,7 @@ abstract class Controller {
      * Execute the controller
      */
     public function execute() {
+        error_log("EVE_JDD_AQUI11");
         // Load the entity
         $this->load();
         $params = Parameters::getInstance();
@@ -463,7 +465,7 @@ abstract class Controller {
                 }
             }
         }
-        error_log("EVE_JDD_AQUI");
+        error_log("EVE_JDD_AQUI1");
         if (!$save) {
             if(isset($_SESSION['mf']) && $_SESSION['mf']== true){
                 $_SESSION['submitted'] = true;
@@ -726,6 +728,8 @@ abstract class Controller {
     }
 
     public function savesessionajax() {
+        error_log("EVE_JDD_AQUI3");
+
         $params = Parameters::getInstance();
         if($params->getUrlParamValue('locked')){
             return false;

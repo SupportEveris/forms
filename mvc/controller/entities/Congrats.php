@@ -66,6 +66,7 @@ class Congrats extends Controller implements IController, IForm {
      * @param bool $save
      */
     public function send($save = false, $updateMF = false) {
+        error_log("EVE_JDD_AQUI2");
         header('Location: ' . APP_URL);
         die;
     }

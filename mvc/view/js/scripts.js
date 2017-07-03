@@ -1526,16 +1526,21 @@ $(document).ready(function () {
         buttonPressed = "next";
         checkSections();
         if(validateNextButtonFieldsAndSections()){
-            if($("#next").val().indexOf("involvement") != -1){
-    //            $("#progressbar-2").click();
+            if($("#next").val().indexOf("Start") != -1) {
+                //            $("#progressbar-2").click();
                 var dataAjax = $('#progressbar-2 a').data("ajax");
-                var href =  $('#progressbar-2 a').attr("href");
+                var href = $('#progressbar-2 a').attr("href");
+                saveSessionAjaxNext(dataAjax, href);
+            } else if($("#next").val().indexOf("involvement") != -1){
+    //            $("#progressbar-2").click();
+                var dataAjax = $('#progressbar-3 a').data("ajax");
+                var href =  $('#progressbar-3 a').attr("href");
                 saveSessionAjaxNext(dataAjax,href);
 
             }else if($("#next").val().indexOf("primary") != -1){
     //            $("#progressbar-3").click();
-                var dataAjax = $('#progressbar-3 a').data("ajax");
-                var href =  $('#progressbar-3 a').attr("href");
+                var dataAjax = $('#progressbar-4 a').data("ajax");
+                var href =  $('#progressbar-4 a').attr("href");
                 saveSessionAjaxNext(dataAjax,href);
 
             }
