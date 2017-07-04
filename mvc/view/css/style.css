@@ -831,7 +831,7 @@ div.titleSN{
         margin-bottom: 2%;
 }
 
-div.required > div label::after{
+div.required > div label:first-child::after{
     content: " *";
     color: red;
     font-size: 2vw;
