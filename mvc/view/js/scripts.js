@@ -443,8 +443,8 @@ $(document).ready(function () {
         }
     });
 
-    if ($('#contact_osh_basicrequirements').val() == '') {
-        $('#contact_osh_basicrequirements').parent().append('<div id="requirements_errormsg" class="error-msg">You must accept to continue</div>');
+    if ($('[name=contact_osh_basicrequirements]:checked').val() == '') {
+        $('[for=contact_osh_basicrequirements]').parent().append('<div id="requirements_errormsg" class="error-msg">You must accept to continue</div>');
     }
 
     $('#form form .required :input').each(function (id, item) {
@@ -541,6 +541,17 @@ $(document).ready(function () {
                     }
                 });
                 
+        }else if($(field).attr("name") == 'contact_osh_basicrequirements'){
+
+
+                var response = validateRequiredField($("[name=contact_osh_basicrequirements]:checked"));
+                if (response){
+                    $("[name=contact_osh_basicrequirements]").removeClass("error");
+                    $("[name=contact_osh_basicrequirements]").attr("data-error", "");
+                }else{
+                    $("[contact_osh_basicrequirements]").addClass("error");
+                    $("[name=contact_osh_basicrequirements]").attr("data-error", "true");
+                }
         }else{
                     var response = true;
                     if($(field).prop("type") != "button"){
@@ -660,23 +671,22 @@ $(document).ready(function () {
     /**
      * Trigger the field validation
      */
-    $('.checkbox input').on({
+    $('[name=contact_osh_basicrequirements]').on({
         change: function () {
-            if($(this).prop("checked")){
-                $(this).val('on');
-                if (!$('#requirements_errormsg').length) {
+            if($('[name=contact_osh_basicrequirements]:checked').val() == 'on'){
+                if ($('#requirements_errormsg').length) {
                     $('#requirements_errormsg').remove();
                 }
                 $('.progressbar-disabled').removeClass('progressbar-disabled');
                 $('.progressbar-last-disabled').addClass('progressbar-last').removeClass('progressbar-last-disabled');
             }else{
-                $(this).val('');
                 if (!$('#requirements_errormsg').length) {
-                    $(this).parent().append('<div id="requirements_errormsg" class="error-msg">You must accept to continue</div>');
+                    $('[for=contact_osh_basicrequirements]').parent().append('<div id="requirements_errormsg" class="error-msg">You must accept to continue</div>');
                 }
                 $('.progressbar-text').addClass('progressbar-disabled');
                 $('.progressbar-last').addClass('progressbar-last-disabled').removeClass('progressbar-last');
             }
+            validateField(this);
         }
     });
 
@@ -1556,7 +1566,7 @@ $(document).ready(function () {
     /**
      * Trigger the section validation
      */
-    setTimeout(checkSections, 300);
+    setInterval(checkSections, 300);
 
     /**
      * Dropdown multiple

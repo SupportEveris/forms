@@ -8,15 +8,15 @@
     }
   },
   "attributes": {
+
     "contact_osh_basicrequirements": {
       "name": "contact_osh_basicrequirements",
-      "label": "I accept",
-      "publicProfile": "publicProfile",
+      "label": "I agree with all the requirements",
       "section": "START",
-      "type": "checkbox",
+      "type": "basicRequirements",
       "validator": [
-        "true",
-        "not_null"]
+              "true",
+              "not_null"]
     },
     "helpMessage": {
       "name": "helpMessage",
