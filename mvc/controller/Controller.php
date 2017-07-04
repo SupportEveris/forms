@@ -356,8 +356,11 @@ abstract class Controller {
                         $mapping = array();
                         $currentRoute = $params->get('route');
                         $currentModel = $this->model;
+
                         foreach ($entities as $entity) {
                             $this->model = new Model(strtolower($params->getUrlParamValue('entity') . '_' . ucfirst($entity)));
+
+                            error_log("EVE_JDD4_" . var_export($params->getUrlParamValue('entity') . '_' . ucfirst($entity), true));
                             if ($updateMF) {
                                 $this->model->setCdbMap(true);
                             } else {
@@ -728,8 +731,6 @@ abstract class Controller {
     }
 
     public function savesessionajax() {
-        error_log("EVE_JDD_AQUI3");
-
         $params = Parameters::getInstance();
         if($params->getUrlParamValue('locked')){
             return false;

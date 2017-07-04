@@ -53,7 +53,9 @@
         "response": "getMantenainceProfileResult"
       },
       "update": "UpdateAppForm",
-      "update_mf": "UpdateMantenainceProfile"
+      "update_mf": "UpdateMantenainceProfile",
+      "satisfaction": "SubmitSatisfaction",
+      "satisfaction_mf": "SubmitSatisfaction"
     },
     "category": {
       "official": "ocp",

@@ -102,7 +102,7 @@ class Sidebar extends Controller implements IController
             $yourcampaignpledgesection = false;
             $tobecomeapartnersection = false;
             $primarycontactsection = false;
-            $startsection = false;
+            $startsection = $_SESSION['basicRequirements'];
 
 
             foreach ($attributes as $name => &$attribute) {
@@ -125,8 +125,6 @@ class Sidebar extends Controller implements IController
                         $aboutyourrepsection = true;
                     }elseif($name == "osh_aboutyourcomrepsection" && $attribute->getValue()){
                         $aboutyourcomrepsection = true;
-                    }elseif($name == "contact_osh_basicrequirements" && $attribute->getValue()){
-                        $startsection = true;
                     }
                 }
             }

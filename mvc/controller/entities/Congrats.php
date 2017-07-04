@@ -5,6 +5,7 @@
  * @version 1.0
  */
 class Congrats extends Controller implements IController, IForm {
+
     /**
      * Class constructor
      * @param bool $directOutput
@@ -40,6 +41,7 @@ class Congrats extends Controller implements IController, IForm {
             'HelpMessage' => "print",
            // 'progressbar' => $progressbarContent,
             'category' => $params->getUrlParamValue('entity')
+
         );
         $content = $renderer->render($contentArray);
          //Vaciamos la variable returnCode para mostrar el dialog una núnica vez.
@@ -69,6 +71,20 @@ class Congrats extends Controller implements IController, IForm {
         error_log("EVE_JDD_AQUI2");
         header('Location: ' . APP_URL);
         die;
+    }
+
+    /**
+     * Send action
+     * @param bool $save
+     */
+    public function submitSatisfaction() {
+        $params = Parameters::getInstance();
+        $MyId = $params->getUrlParamValue('session_id');
+        $SelectedSatisfaction = $_GET['satisfaction'];
+        error_log("EVE_JDD_AQUI4_$MyId. $SelectedSatisfaction");
+        $currentModel = new Model("");
+        $currentModel->submitSatisfactionToCDB($MyId, $SelectedSatisfaction);
+
     }
 
 }

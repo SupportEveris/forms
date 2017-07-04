@@ -11,7 +11,7 @@ define('APP_PORT', intval($_SERVER['SERVER_PORT']) != 80 ? ':' . $_SERVER['SERVE
 define('APP_CONFIG', APP_ROOT . 'config/');
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_PROXY, '127.0.0.1:8888');
+
 
 /* Drupal bootstrap procedure */ 
 //define('DRUPAL_ROOT', realpath(__DIR__ . '/../../')); 

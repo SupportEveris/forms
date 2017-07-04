@@ -316,6 +316,10 @@ select[disabled] {
     background-image : url(../img/green-section.png);
 }
 
+.progressbar-disabled {
+    background-image : url(../img/grey-section.png);
+}
+
 .progressbar-first {
     background-image : url(../img/blue-section-first.png);
 }
@@ -330,6 +334,10 @@ select[disabled] {
 
 .progressbar-last-active {
     background-image : url(../img/green-section-last.png);
+}
+
+.progressbar-last-disabled {
+    background-image : url(../img/grey-section-last.png);
 }
 
 .review-fields {
@@ -1028,3 +1036,16 @@ p.congrats {
 }
 
 input[type="radio"]{border:0 !important;}
+
+label.congrats_rad > input{
+    visibility: hidden;
+    position: absolute;
+}
+img.congrats_rad{ /* IMAGE STYLES */
+    cursor:pointer;
+    border:2px solid transparent;
+    -webkit-transition: opacity 1s ease-in-out;
+    -moz-transition: opacity 1s ease-in-out;
+    -o-transition: opacity 1s ease-in-out;
+    transition: opacity 1s ease-in-out;
+}

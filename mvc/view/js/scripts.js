@@ -664,12 +664,18 @@ $(document).ready(function () {
         change: function () {
             if($(this).prop("checked")){
                 $(this).val('on');
-                $('#requirements_errormsg').remove();
+                if (!$('#requirements_errormsg').length) {
+                    $('#requirements_errormsg').remove();
+                }
+                $('.progressbar-disabled').removeClass('progressbar-disabled');
+                $('.progressbar-last-disabled').addClass('progressbar-last').removeClass('progressbar-last-disabled');
             }else{
                 $(this).val('');
                 if (!$('#requirements_errormsg').length) {
                     $(this).parent().append('<div id="requirements_errormsg" class="error-msg">You must accept to continue</div>');
                 }
+                $('.progressbar-text').addClass('progressbar-disabled');
+                $('.progressbar-last').addClass('progressbar-last-disabled').removeClass('progressbar-last');
             }
         }
     });
@@ -1550,7 +1556,7 @@ $(document).ready(function () {
     /**
      * Trigger the section validation
      */
-    setInterval(checkSections, 300);
+    setTimeout(checkSections, 300);
 
     /**
      * Dropdown multiple
@@ -1746,8 +1752,11 @@ $(document).ready(function () {
             $("#PRIMARY_CONTACT").css("padding-top", 0);
         }
         if($("#INVOLVEMENT").length > 0){
-            $("#INVOLVEMENT").css("padding-top", 0);
-        }
+             $("#INVOLVEMENT").css("padding-top", 0);
+         }
+         if($("#START").length > 0){
+             $("#START").css("padding-top", 0);
+         }
      }
      if($("#helpMessage").val()== "false"){
          $("#container-message").addClass('hidden');
@@ -2277,7 +2286,60 @@ $(document).ready(function () {
         }
     });
 
-if($(".disabledEmailForMF").length > 0){
-    $('#contact_osh_mainemail').parent().append('<p class="help-block">This field cannot be directly changed in the form. If you want to modify it, please, contact EU-OSHA in partners@healthy-workplaces.eu</p>');
-}
-});
+    if($(".disabledEmailForMF").length > 0){
+        $('#contact_osh_mainemail').parent().append('<p class="help-block">This field cannot be directly changed in the form. If you want to modify it, please, contact EU-OSHA in partners@healthy-workplaces.eu</p>');
+    }
+
+    $('input[type=radio][name=congrats_rad]').change(function() {
+        $('input[type=radio][name=congrats_rad]').each(function()
+        {
+            if ($(this)[0].checked) {
+                alert(this.value + "checked");
+            } else {
+                alert(this.value + "unchecked");
+            }
+        });
+    });
+
+    $('img[class=congrats_rad]').click(function() {
+        var selectedRadio = $('input[type=radio][name=congrats_rad]:checked')!=null?$('input[type=radio][name=congrats_rad]:checked').val():-1;
+        if (selectedRadio > 0){
+            var currentSrc =  $('#face' + selectedRadio).attr('src');
+            $('#face' + selectedRadio).attr('src', currentSrc.replace('B.png', 'A.png'));
+        }
+        var clickedImg = $(this).attr('id');
+        var clickedRadio = $('#' + clickedImg + 'radio');
+        clickedRadio.prop('checked', true);
+        clickedImgCurrentSrc = $(this).attr('src');
+        $(this).attr('src', clickedImgCurrentSrc.replace('A.png', 'B.png'));
+
+
+        var urlParamsArray = {
+            route: getUrlVar("route"),
+            ajax: true,
+            async: false,
+            action: "submitSatisfaction",
+            satisfaction: clickedRadio.val()
+        };
+        var urlParams = $.param(urlParamsArray);
+        var url = window.location.href;
+        if (url.indexOf("?") != -1) {
+            var pos = url.indexOf("?");
+            url = url.substr(0, pos);
+        }
+        url += "?" + urlParams;
+
+        //        Evitamos que valide los campos de contact si el check maincontactchange está pulsado.
+//            if(!isMainContact($(field))){
+        $.get(url, function (data, status) {
+            var response = jQuery.parseJSON(data);
+            if(!response.status){
+                $(field).addClass("error");
+                $(field).attr("data-error", "true");
+            }else{
+                $(field).removeClass("error");
+                $(field).attr("data-error", "");
+            }
+        });
+    });
+}); //Fin del document.ready
