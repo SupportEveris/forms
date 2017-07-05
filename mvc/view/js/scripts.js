@@ -366,12 +366,12 @@ function validaImagenes(section) {
 
     function checkSections() {
         //Workaound error displaying field IE
-        if($("#company_osh_orgname").length > 0){
+        /*if($("#company_osh_orgname").length > 0){
             $("#company_osh_orgname").val($("#company_osh_orgname").val());
         }
         if($("#contact_osh_maincontactpersonfirstname").length > 0){
             $("#contact_osh_maincontactpersonfirstname").val($("#contact_osh_maincontactpersonfirstname").val());
-        }
+        }*/
         var ret = false;
         $("#sidebar-top .section").each(function (id, item) {
             var elemId = $(item).attr("data-section");
@@ -1532,6 +1532,7 @@ $(document).ready(function () {
         if(targetElement.indexOf("logoimage")!= -1){
           $('.company_osh_logoimage_helpText').text("Please, if you want to change this logo, please upload a new one in png. or jpg. file format. The file must not exceed 1MB");
         }
+        checkSections();
         
     });
 
@@ -1562,11 +1563,6 @@ $(document).ready(function () {
             }
         }
     });
-
-    /**
-     * Trigger the section validation
-     */
-    setInterval(checkSections, 300);
 
     /**
      * Dropdown multiple
@@ -2352,4 +2348,16 @@ $(document).ready(function () {
             }
         });
     });
+
+    /**
+     * Trigger the section validation
+     */
+    //setTimeout(checkSections, 300);
+
+    $('input, select, textarea').on({
+        change: function () {
+            checkSections();
+        }
+    });
+
 }); //Fin del document.ready

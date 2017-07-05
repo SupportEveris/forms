@@ -102,7 +102,7 @@ class Sidebar extends Controller implements IController
             $yourcampaignpledgesection = false;
             $tobecomeapartnersection = false;
             $primarycontactsection = false;
-            $startsection = $_SESSION['basicRequirements'];
+            $startsection = isset($_SESSION['basicRequirements']) && $_SESSION['basicRequirements'];
 
 
             foreach ($attributes as $name => &$attribute) {

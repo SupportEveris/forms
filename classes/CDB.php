@@ -197,6 +197,7 @@ final class CDB
         }
         //Reseteamos la variable del main contact change check
         unset($_SESSION['mainContactChangeCheck']);
+        unset($_SESSION['basicRequirements']);
 
         $params = Parameters::getInstance();
         if ($params->getUrlParamValue('maintenance_mode')) {
@@ -251,6 +252,9 @@ final class CDB
             }
             if(isset($response['osh_lastname']) && $response['osh_lastname'] != ""){
                 $response['contact_osh_maincontactpersonlastnameAux'] = $response['osh_lastname'];
+            }
+            if(isset($response['osh_basicrequirements']) && $response['osh_basicrequirements'] == "true"){
+                $response['osh_basicrequirements'] = 'on';
             }
             foreach ($this->cdbMap as $htmlName => $cdbName) {
                 if (isset ($response[$cdbName])) {
