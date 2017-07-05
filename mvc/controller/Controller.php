@@ -97,6 +97,7 @@ abstract class Controller {
                 'actionType' => $params->get('actionType'),
                 'disabled' => '',
                 'fieldsValidatingDialog' => $this->fieldsValidation(),
+                'route' => $params->get('route')
             );
             // PDF version
             if ($isPrintable) {
