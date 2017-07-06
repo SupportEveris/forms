@@ -2360,4 +2360,8 @@ $(document).ready(function () {
         }
     });
 
+    if(!$(".saveDialog").hasClass('hidden')) {
+        $(".saveDialog").dialog({modal: true});
+    }
+
 }); //Fin del document.ready

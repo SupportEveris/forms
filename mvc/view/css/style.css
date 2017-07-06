@@ -979,8 +979,8 @@ p.congrats {
     /*position: fixed;*/
     //Fixed not works into the iframe
     position: absolute;
-    left: 40%;
-    /*top: 40%;*/
+    /*left: 40%;
+    top: 40%;*/
     top: 5%;
     background-color: #F2F2F2;
     border: 1px solid red;
