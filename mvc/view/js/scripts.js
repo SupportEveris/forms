@@ -915,6 +915,7 @@ $(document).ready(function () {
                     }
                     $("#fillRequiredDialog").removeClass('hidden');
 //                    document.location.href = "#top";
+
                     document.body.scrollTop = document.documentElement.scrollTop = 0;
                     if(window.parent.document.getElementsByClassName("top_anchor").length == 1){
                         window.parent.document.getElementsByClassName("top_anchor")[0].click();
