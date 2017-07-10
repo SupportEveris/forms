@@ -43,13 +43,14 @@
         {$attributes.company_osh_yourmissionstatement}
     </div>
 </fieldset>
+{if $HelpMessage != "print"}
 <div class="helpDiv">
     <div class="helpSection" style="float: right; margin-right:5%;">
         <span class="helpIcon" name="helpIcon">?</span>
         <a class="helpButton" name="helpButton">HELP</a>
     </div>
 </div>
-
+{/if}
 <fieldset>
     <legend id="GENERAL_INFORMATION">
         General Contact Information
@@ -111,12 +112,14 @@
         {$attributes.company_osh_generalphone}
     </div>
 </fieldset>
+{if $HelpMessage != "print"}
 <div class="helpDiv">
     <div class="helpSection" style="float: right; margin-right:5%;">
         <span class="helpIcon" name="helpIcon">?</span>
         <a class="helpButton" name="helpButton">HELP</a>
     </div>
 </div>
+{/if}
 {if !$mf}
     <fieldset>
         <legend id="CEO">
@@ -136,10 +139,12 @@
             {$attributes.company_osh_quoteonhwc}
         </div>
     </fieldset>
+    {if $HelpMessage != "print"}
     <div class="helpDiv">
         <div class="helpSection" style="float: right; margin-right:5%;">
             <span class="helpIcon" name="helpIcon">?</span>
             <a class="helpButton" name="helpButton">HELP</a>
         </div>
     </div>
+    {/if}
 {/if}

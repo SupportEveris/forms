@@ -54,6 +54,7 @@
             {$attributes.osh_aboutyourcomrepsection}
     </div>
 </fieldset>
+{if $HelpMessage != "print"}
 <div class="helpDiv">
     <div data-section="ORGANISATION" class="validation{$locked}">I validate the information filled in this section</div>
     <div class="helpSection" style="float: right; margin-right:5%;">
@@ -61,7 +62,7 @@
         <a class="helpButton" name="helpButton">HELP</a>
     </div>
 </div>
-
+{/if}
 
 <fieldset>
     <legend id="GENERAL_INFORMATION">
@@ -125,6 +126,7 @@
     <!-- <p id="general-text">Please note that all communications related to this application will be addressed to the
         main contact person as indicated below.</p> -->
 </fieldset>
+{if $HelpMessage != "print"}
 <div class="helpDiv">
     <div data-section="GENERAL_INFORMATION" class="validation{$locked}">I validate the information filled in this section</div>
     <div class="helpSection" style="float: right; margin-right:5%;">
@@ -132,6 +134,7 @@
         <a class="helpButton" name="helpButton">HELP</a>
     </div>
 </div>
+{/if}
 <fieldset>
     <legend id="CEO">
         Information about your CEO
@@ -157,6 +160,7 @@
         {$attributes.company_osh_quoteonhwc_clone}
     </div>
 </fieldset>
+{if $HelpMessage != "print"}
 <div class="helpDiv">
     <div data-section="CEO" class="validation{$locked}">I validate the information filled in this section</div>
     <div class="helpSection" style="float: right; margin-right:5%;">
@@ -164,6 +168,7 @@
         <a class="helpButton" name="helpButton">HELP</a>
     </div>
 </div>
+{/if}
 <fieldset>
     <legend id="OSH">
         Your OSH representative
@@ -184,6 +189,7 @@
         {$attributes.company_osh_emailrepresentative}
     </div>
 </fieldset>
+{if $HelpMessage != "print"}
 <div class="helpDiv">
     <div data-section="OSH" class="validation{$locked}">I validate the information filled in this section</div>
     <div class="helpSection" style="float: right; margin-right:5%;">
@@ -191,6 +197,7 @@
         <a class="helpButton" name="helpButton">HELP</a>
     </div>
 </div>
+{/if}
 <fieldset>
     <legend id="COMMUNICATION_REP">
         Your Communication Representative
@@ -210,6 +217,7 @@
         {$attributes.comrep_osh_emailmediapr}
     </div>
 </fieldset>
+{if $HelpMessage != "print"}
 <div class="helpDiv">
     <div data-section="COMMUNICATION_REP" class="validation{$locked}">I validate the information filled in this section</div>
     <div class="helpSection" style="float: right; margin-right:5%;">
@@ -217,3 +225,4 @@
         <a class="helpButton" name="helpButton">HELP</a>
     </div>
 </div>
+{/if}

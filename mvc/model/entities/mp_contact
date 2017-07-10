@@ -20,6 +20,7 @@
     },
     "contact_osh_maincontactpersonfirstname_clone": {
       "name": "contact_osh_maincontactpersonfirstname_clone",
+      "label": "Previous name of main contact person for the campaign",
       "section": "PRIMARY_CONTACT",
       "type": "text"
     },
@@ -33,6 +34,7 @@
     },
     "contact_osh_maincontactpersonlastname_clone": {
       "name": "contact_osh_maincontactpersonlastname_clone",
+      "label": "Previous surname",
       "section": "PRIMARY_CONTACT",
       "type": "text"
     },
@@ -45,6 +47,7 @@
     },
     "contact_osh_positionmaincontactperson_clone": {
       "name": "contact_osh_positionmaincontactperson_clone",
+      "label": "Previous position",
       "section": "PRIMARY_CONTACT",
       "type": "text"
     },
@@ -62,6 +65,7 @@
     "contact_osh_mainemail_clone": {
       "name": "contact_osh_mainemail_clone",
       "section": "PRIMARY_CONTACT",
+      "label": "Previous e-mail",
       "type": "text"
     },
     "helpMessage": {
@@ -105,6 +109,7 @@
      },
     "contact_osh_confirm_mainemail_clone": {
       "name": "contact_osh_confirm_mainemail_clone",
+      "label": "Previous email confirmation",
       "section": "PRIMARY_CONTACT",
       "type": "text"
     },

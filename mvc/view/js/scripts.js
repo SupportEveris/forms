@@ -1677,10 +1677,11 @@ $(document).ready(function () {
 			$(this).parents('fieldset').find(".main-contact-change :input").not(':button').each(function (id, item) {
             // $(".main-contact-change :input").not(':button').each(function (id, item) { //Issue with main contact when CEO/Editor change is checked in mf
 //                $(contactBackup).find("#" + $(item).attr("id")).val($(item).val());
-                
-                $('#'+$(item).attr("id")+'_clone').val($(item).val());
-                $('#'+$(item).attr("id")+'_clone').addClass("main-contact-change-backup");
+                var field =$('#'+$(item).attr("id")+'_clone');
+                field.val($(item).val());
+                field.addClass("main-contact-change-backup");
                 $(item).val("");
+
 //                $(item).removeClass("error");
 //                $(item).attr("data-error", "");
                 $("#"+$(item).attr("id")+"_errormsg").remove();
@@ -1696,21 +1697,30 @@ $(document).ready(function () {
                $('.company_osh_ceoimage_thumbBox img').attr('src' ,"");
             }
             $("#confirmemail_errormsg").remove();
+
+            $(".main-contact-change-clone").show();
 //            $(contactBackup).appendTo(".main-contact-change");
         } else {
 			$(this).parents('fieldset').find(".main-contact-change-backup").each(function (id, item) {
             // $(".main-contact-change-backup").each(function (id, item) { //Issue with main contact when CEO/Editor change is checked in mf
-                $("#"+$(item).attr("id").substr(0,$(item).attr("id").indexOf("_clone"))).val($(item).val());
-//                $(".main-contact-change").find("#" + $(item).attr("id")).val($(item).val());
+                var field = $("#"+$(item).attr("id").substr(0,$(item).attr("id").indexOf("_clone")));
+                field.val($(item).val());
+                $(".main-contact-change").find("#" + $(item).attr("id")).val($(item).val());
             });
             // if($(".main-contact-change-checkbox").attr("id")== "company_osh_ceochange"){
             if($(this).attr("id")== "company_osh_ceochange"){
                 // $('#company_osh_ceoimage_image_container img').attr('src' ,ceoImage);
                 $('.company_osh_ceoimage_image_container img').attr('src' ,ceoImage);
             }
+            $(".main-contact-change-clone").hide();
 //            $(".main-contact-change").remove(".main-contact-change-backup");
         }
     });
+
+    $(".main-contact-change-clone :input").attr('disabled', 'disabled');
+    $(".main-contact-change-clone").hide();
+
+
 
     /**
      * Combined checkbox event
@@ -2365,13 +2375,14 @@ $(document).ready(function () {
                 $(".helpDialog").dialog({
                         title:"Submit a question",
                         width:"33%",
+                    modal:true,
                         buttons: [
                             {
                                 text: "SEND",
                                 click: function () {
                                     var email = $("#email").val();
                                     var message = $("#message").val();
-                                    var section = $('.helpPressed').parent().parent().find('legend').text().trim();
+                                    var section = $('.helpPressed').parent().prev().children('legend').text().trim();
                                     var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
                                     if (email === '' || message === '') {
                                         $("#helpError").html('Please, fill all fields<br>');

@@ -715,8 +715,12 @@ textarea.error {
 }
 
 .main-contact-change-backup {
-    display : none;
+    /* -display : none; */
 }
+.main-contact-change-clone{
+    margin-bottom: 450px;
+}
+
 .mainContactCheck label{
     display: inline;
     margin-left: 1%;
@@ -1030,7 +1034,7 @@ p.congrats {
     color: black !important;
 }
 .saveExplanationSave{
-    font-size: xx-small;
+    font-size: x-small;
 }
 #containerSocialNetworks{
     margin-top: 4%;
@@ -1110,4 +1114,12 @@ img.congrats_rad{ /* IMAGE STYLES */
 }
 .ui-dialog-titlebar-close:hover {
     background: url("http://code.jquery.com/ui/1.10.3/themes/smoothness/images/ui-icons_222222_256x240.png") repeat scroll -93px -128px rgba(0, 0, 0, 0);
+}
+
+.ui-widget-overlay
+{
+    opacity: .50 !important; /* Make sure to change both of these, as IE only sees the second one */
+    filter: Alpha(Opacity=50) !important;
+
+    background-color: rgb(50, 50, 50) !important; /* This will make it darker */
 }
