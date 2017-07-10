@@ -1771,7 +1771,12 @@ $(document).ready(function () {
         $(".dialog").addClass('hidden');
         $(".saveDialog").addClass('hidden');
      });
-     
+
+    $(".closeDialog").click(function (e) {
+        $(".dialog").addClass('hidden');
+        $(".helpDialog").addClass('hidden');
+    });
+
      if($('.disabledEmailForMF').length == 1){
          $("#contact_osh_mainemail").css({
             'pointer-events': 'none',
@@ -2296,16 +2301,6 @@ $(document).ready(function () {
         $('#contact_osh_mainemail').parent().append('<p class="help-block">This field cannot be directly changed in the form. If you want to modify it, please, contact EU-OSHA in partners@healthy-workplaces.eu</p>');
     }
 
-    $('input[type=radio][name=congrats_rad]').change(function() {
-        $('input[type=radio][name=congrats_rad]').each(function()
-        {
-            if ($(this)[0].checked) {
-                alert(this.value + "checked");
-            } else {
-                alert(this.value + "unchecked");
-            }
-        });
-    });
 
     $('img[class=congrats_rad]').click(function() {
         var selectedRadio = $('input[type=radio][name=congrats_rad]:checked')!=null?$('input[type=radio][name=congrats_rad]:checked').val():-1;
@@ -2360,6 +2355,29 @@ $(document).ready(function () {
         }
     });
 
+
+
+    $(".helpButton").on({
+            click: function () {
+                $(".helpDialog").removeClass("hidden");
+                $(".helpDialog").dialog({
+                        buttons: [
+                            {
+                                text: "SEND",
+                                click: function () {
+                                    $(this).dialog("close");
+                                }
+                            }
+                        ]
+                    }
+                );
+            }
+        }
+    );
+
+
+
+ }); //Fin del document.ready
     if(!$(".saveDialog").hasClass('hidden')) {
         $(".saveDialog").dialog({modal: true});
     }

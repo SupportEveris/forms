@@ -9,6 +9,16 @@
 </div>
 {/if}
 {/if}
+
+<div class="helpDialog hidden">
+    <span>If you have any doubts about how to fill in this form or if you need any assistance, you can leave us a message and we will contact you as soon as possible.</span>
+    <span>Your email:</span>
+
+    <input id="email" type="text"/>
+    <span>Your message:</span>
+    <textarea id="message"></textarea>
+</div>
+
 <fieldset>
     <legend id="ORGANISATION">
         About your Media Outlet
@@ -21,6 +31,7 @@
         {$attributes.company_osh_orgname}
         {$attributes.company_osh_logoimage}
     </div>
+
     <div class="hidden">
         {$attributes.helpMessage}
         {$attributes.contact_osh_mainemailAux}
@@ -54,6 +65,10 @@
             {$attributes.company_osh_readershipgeneralaudience}
         </div>
     </div>
+    <div class="helpSection" style="float: right; width: 100%; ">
+        <a class="helpButton" name="helpButton">? Help</a>
+    </div>
+
 </fieldset>
 <fieldset>
     <legend id="GENERAL_INFORMATION">
@@ -113,6 +128,9 @@
         {$attributes.company_osh_prefixgeneralphone}
         {$attributes.company_osh_generalphone}
     </div>
+    <div class="helpSection" style="float: right; width: 100%; ">
+        <a class="helpButton" name="helpButton">? Help</a>
+    </div>
 </fieldset>
 <fieldset>
     <legend id="CHIEF">
@@ -133,5 +151,8 @@
     <div class="hidden">
         {$attributes.company_osh_ceo_firstname_clone}
         {$attributes.company_osh_ceo_lastname_clone}
+    </div>
+    <div class="helpSection" style="float: right; width: 100%; ">
+        <a class="helpButton" name="helpButton">? Help</a>
     </div>
 </fieldset>
