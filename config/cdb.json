@@ -55,7 +55,9 @@
       "update": "UpdateAppForm",
       "update_mf": "UpdateMantenainceProfile",
       "satisfaction": "SubmitSatisfaction",
-      "satisfaction_mf": "SubmitSatisfaction"
+      "satisfaction_mf": "SubmitSatisfaction",
+      "question": "SubmitQuestion",
+      "question_mf": "SubmitQuestion"
     },
     "category": {
       "official": "ocp",

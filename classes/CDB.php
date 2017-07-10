@@ -564,7 +564,7 @@ final class CDB
     {
         $params = Parameters::getInstance();
         $readMethod = null;
-        if ($key == 'update' || $keyMf == 'update_mf' ||$key == 'satisfaction' || $keyMf == 'satisfaction_mf' ) {
+        if ($key == 'update' || $keyMf == 'update_mf' ||$key == 'satisfaction' || $keyMf == 'satisfaction_mf' ||$key == 'question' || $keyMf == 'question_mf' ) {
             if (isset($params->get('cdb')['regular_methods'])) {
                 if ($params->getUrlParamValue('maintenance_mode')) {
                     if (isset($params->get('cdb')['regular_methods'][$keyMf])) {
@@ -731,6 +731,11 @@ final class CDB
         $this->updateSatisfaction($id, $satisfaction);
     }
 
+    public function submitQuestion($id, $title, $message, $email)
+    {
+        $this->updateQuestion($id, $title, $message, $email);
+    }
+
     /**
      * @param string $parameters
      *
@@ -883,10 +888,35 @@ final class CDB
 
     private function updateSatisfaction($id, $satisfaction){
         $satisfactionMethod = $this->getMethod('satisfaction', 'satisfaction_mf');
-        error_log("EVE_JDD_8" . print_r($satisfactionMethod, 1));
         $urlBase          = $this->host . $this->port . $this->resource . $satisfactionMethod;
         $url = $urlBase . "?id=" . $id ."&satisfaction=" .$satisfaction;
+        $ch = curl_init();
+        error_log("URL: " .$url);
+        curl_setopt($ch, CURLOPT_URL,$url);
+        //curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt ($ch, CURLOPT_SSL_VERIFYHOST, 0);
+        curl_setopt ($ch, CURLOPT_SSL_VERIFYPEER, 0);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $server_output = curl_exec ($ch);
+        if($server_output === false)
+        {
+            error_log('Curl error: ' . curl_error($ch));
+        }
+        else
+        {
+            echo 'Operación completada sin errores';
+        }
 
+
+        curl_close($ch);
+
+        error_log("Respuesta: " .  print_r($server_output,1));
+    }
+
+    private function updateQuestion($id, $title, $message, $email){
+        $questionMethod = $this->getMethod('question', 'question_mf');
+        $urlBase          = $this->host . $this->port . $this->resource . $questionMethod;
+        $url = $urlBase . "?id=" . $id ."&title=" .urlencode($title)."&message=" .urlencode($message) . "&email=". urlencode($email);
         $ch = curl_init();
         error_log("URL: " .$url);
         curl_setopt($ch, CURLOPT_URL,$url);

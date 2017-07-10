@@ -81,7 +81,6 @@ class Sidebar extends Controller implements IController
         if (! $entities) {
             throw new OshException('bad_config', 500);
         }
-        
         $sections = $params->get('sections_validated');
         foreach ($entities as $entity) {
             $model = new Model(strtolower($params->getUrlParamValue('entity') . '_' . ucfirst($entity)));

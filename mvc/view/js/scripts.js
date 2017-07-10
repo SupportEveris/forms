@@ -2333,14 +2333,15 @@ $(document).ready(function () {
         //        Evitamos que valide los campos de contact si el check maincontactchange está pulsado.
 //            if(!isMainContact($(field))){
         $.get(url, function (data, status) {
-            var response = jQuery.parseJSON(data);
+            /*var response = jQuery.parseJSON(data);
             if(!response.status){
                 $(field).addClass("error");
                 $(field).attr("data-error", "true");
             }else{
                 $(field).removeClass("error");
                 $(field).attr("data-error", "");
-            }
+            }*/
+            //TODO: ¿Process response?
         });
     });
 
@@ -2357,15 +2358,63 @@ $(document).ready(function () {
 
 
 
-    $(".helpButton").on({
+    $(".helpSection").on({
             click: function () {
+                $(this).addClass("helpPressed");
                 $(".helpDialog").removeClass("hidden");
                 $(".helpDialog").dialog({
+                        title:"Submit a question",
+                        width:"33%",
                         buttons: [
                             {
                                 text: "SEND",
                                 click: function () {
-                                    $(this).dialog("close");
+                                    var email = $("#email").val();
+                                    var message = $("#message").val();
+                                    var section = $('.helpPressed').parent().parent().find('legend').text().trim();
+                                    var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+                                    if (email === '' || message === '') {
+                                        $("#helpError").html('Please, fill all fields<br>');
+                                        $("#helpError").removeClass("hidden");
+                                    } else if (!(email).match(emailReg)) {
+                                        $("#helpError").html('Invalid email<br>');
+                                        $("#helpError").removeClass("hidden");
+                                    }else {
+                                        $("#helpError").addClass("hidden");
+
+                                        var urlParamsArray = {
+                                            route: getUrlVar("route"),
+                                            ajax: true,
+                                            async: false,
+                                            action: "submitQuestion",
+                                            email: email,
+                                            title: section,
+                                            message: message
+                                        };
+                                        var urlParams = $.param(urlParamsArray);
+                                        var url = window.location.href;
+                                        if (url.indexOf("?") != -1) {
+                                            var pos = url.indexOf("?");
+                                            url = url.substr(0, pos);
+                                        }
+                                        url += "?" + urlParams;
+
+                                        $.get(url, function (data, status) {
+                                            /*var response = jQuery.parseJSON(data);
+                                             if(!response.status){
+                                             $(field).addClass("error");
+                                             $(field).attr("data-error", "true");
+                                             }else{
+                                             $(field).removeClass("error");
+                                             $(field).attr("data-error", "");
+                                             }*/
+                                            //TODO: ¿Process response?
+                                            $('.helpDialog').dialog("close");
+                                            $('.helpPressed').removeClass("helpPressed");
+                                            $("#message").val("");
+                                        });
+                                    }
+
                                 }
                             }
                         ]
@@ -2375,11 +2424,9 @@ $(document).ready(function () {
         }
     );
 
-
-
- }); //Fin del document.ready
     if(!$(".saveDialog").hasClass('hidden')) {
         $(".saveDialog").dialog({modal: true});
     }
+
 
 }); //Fin del document.ready
