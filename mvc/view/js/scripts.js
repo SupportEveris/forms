@@ -254,7 +254,7 @@ function checkSectionsByCDB(dataSection){
     }); 
                 
     $('[data-section="' + dataSection + '"]*.validation').addClass("validation-pressed");
-//    $(this).addClass("validation-pressed");
+    //    $(this).addClass("validation-pressed");
 
     if(dataSection=="GENERAL_INFORMATION"){
         $("#company_osh_selectsocialnetworks").prop("disabled", "disabled");
@@ -1432,6 +1432,7 @@ $(document).ready(function () {
             }else if(dataSection == 'PRIMARY_CONTACT'){
                 $('#osh_primarycontactsection').val("true");
             }
+            $('#' + dataSection + '_check').removeClass("hidden");
         }else{
             if(dataSection == 'ORGANISATION'){
                 $('#osh_aboutyourorgsection').val("");
@@ -1452,6 +1453,7 @@ $(document).ready(function () {
             }else if(dataSection == 'PRIMARY_CONTACT'){
                 $('#osh_primarycontactsection').val("");
             }
+            $('#' + dataSection + '_check').addClass("hidden");
         }
     }
 
