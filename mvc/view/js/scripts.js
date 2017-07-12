@@ -251,9 +251,11 @@ function checkSectionsByCDB(dataSection){
                 'background': '#E3E3E4'
             });
         }
-    }); 
-                
+    });
+
     $('[data-section="' + dataSection + '"]*.validation').addClass("validation-pressed");
+    $('#' + dataSection + '_check').removeClass("hidden");
+
     //    $(this).addClass("validation-pressed");
 
     if(dataSection=="GENERAL_INFORMATION"){
@@ -1300,8 +1302,8 @@ $(document).ready(function () {
                     if($('.select2-selection').length > 0){
                         $('.select2-selection').css({
                             'background-color': 'white'
-        });
-       } 
+                        });
+                       }
                 }
                 if(dataSection=="CEO"){
                     //Disabled the imageButtons
