@@ -19,6 +19,29 @@
     
      <!--  {if !mf && $partner_type == "current"}<div>{$attributes.contact_osh_maincontactchange}</div>{/if}-->
  {if !$mf && $mainContactChangeCheck == true && $partner_type != "current" && preg_match('/[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}/', $session_id)}<div>{$attributes.contact_osh_maincontactchange}</div>{/if}
+    <div class="main-contact-change-clone">
+        <div class="float-left">
+            {$attributes.contact_osh_maincontactpersonfirstname_clone}
+            {$attributes.contact_osh_maincontactpersonlastname_clone}
+            {$attributes.contact_osh_positionmaincontactperson_clone}
+        </div>
+        <div class="float-right">
+            {$attributes.contact_osh_prefixmaincontactphone_clone}
+            {$attributes.contact_osh_mainphone_clone}
+
+            {if $mf || $partner_type == "current"}
+            <div>
+                {/if}
+                {$attributes.contact_osh_mainemail_clone}
+                {if $mf || $partner_type == "current"}
+            </div>
+            {/if}
+            {if !$mf && $partner_type != "current" && !$locked}
+                {$attributes.contact_osh_confirm_mainemail_clone}
+            {/if}
+        </div>
+    </div>
+
     <div class="main-contact-change">
         <div class="float-left">
             {$attributes.contact_osh_maincontactpersonfirstname}
@@ -53,14 +76,7 @@
         {$attributes.contact_osh_maincontactpersonfirstnameAux}
         {$attributes.contact_osh_maincontactpersonlastnameAux}
         {$attributes.osh_primarycontactsection}
-        {$attributes.contact_osh_maincontactpersonfirstname_clone}
-        {$attributes.contact_osh_maincontactpersonlastname_clone}
-        {$attributes.contact_osh_positionmaincontactperson_clone}
-        {$attributes.contact_osh_mainphone_clone}
-        {$attributes.contact_osh_mainemail_clone}
-        {if !$mf && $partner_type != "current" && !$locked}
-            {$attributes.contact_osh_confirm_mainemail_clone}
-        {/if}
+
     </div>
 </fieldset>
 
