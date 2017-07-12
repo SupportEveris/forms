@@ -256,6 +256,14 @@ final class CDB
             if(isset($response['osh_basicrequirements']) && $response['osh_basicrequirements'] == "true"){
                 $response['osh_basicrequirements'] = 'on';
             }
+
+            foreach ($response as $attrName => $attrValue) {
+                if (strpos($attrName, 'prefix') !== false  && is_array($attrValue)){
+                    $response[$attrName] = $attrValue['Id'];
+                }
+            }
+
+            error_log("EVE_JDD_SESSION_" . var_export($response, true));
             foreach ($this->cdbMap as $htmlName => $cdbName) {
                 if (isset ($response[$cdbName])) {
                     if (is_array($response[$cdbName]) && isset($response[$cdbName]['Name'])) {
