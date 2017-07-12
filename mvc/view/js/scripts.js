@@ -691,6 +691,17 @@ $(document).ready(function () {
     });
 
 
+    $(".checkbox input").on({
+            click:function () {
+                //WorkAround main contact change
+                if ($(this).prop('checked')) {
+                    $(this).val('on');
+                } else {
+                    $(this).val('');
+                }
+            }
+    });
+
     $(".main-form .required input").on({
         change: function () {
             validateField(this);
@@ -2439,6 +2450,7 @@ $(document).ready(function () {
     if(!$(".saveDialog").hasClass('hidden')) {
         $(".saveDialog").dialog({modal: true});
     }
+
 
 
 }); //Fin del document.ready
