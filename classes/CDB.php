@@ -52,7 +52,9 @@ final class CDB
         }
         $inst->cdbMap = $cdbMap;
         $inst->initialize();
+
         if ($sessionId) {
+
             $inst->initializeSession($sessionId);
         }
         // Load the data of the dropDowns
@@ -88,10 +90,12 @@ final class CDB
         $this->sessionID = $sessionId;
         // Set the context
         $this->setContext();
+
         if ($this->cdbMap) {
-            // Load the fields
+             // Load the fields
             $this->getSessionData();
         }
+
     }
 
     /**
@@ -170,6 +174,7 @@ final class CDB
      */
     private function getSessionData()
     {
+
         $readMethod   = $this->getMethod('read', 'read_mf');
         $url          = $this->buildUrl($readMethod);
         $responseData = $this->getData($url);
@@ -319,6 +324,8 @@ final class CDB
             }
             $responseFixed[$key] = $value;
         }
+        error_log("EVE_JDD_setOtherUsersField3_" . var_export($response, true));
+
         foreach($response2 as $key => $value){
             foreach($value['Fields'] as $key2 => $value2){
                 if(isset($value['Fields']['osh_campaigncontacttype']) && $value['Fields']['osh_campaigncontacttype'] == 2){
@@ -367,6 +374,10 @@ final class CDB
             $key = "osh_otheruseremail".$otherUserId;
             $value = $value2;
             return $key .";" . $value;
+        }else if($key2 == "osh_prefixphone1") {
+            $key = "osh_otheruserprefix".$otherUserId;
+            $value = $value2['Id'];
+            return $key .";" . $value;
         }
         
     }
@@ -406,6 +417,10 @@ final class CDB
         }else if($key2 == "emailaddress1"){
             $key = "osh_representativeemailaddress1";
             $value = $value2;
+            return $key .";" . $value;
+        }else if($key2 == "osh_prefixphone1") {
+            $key = "osh_prefixrepresentativephone";
+            $value = $value2['Id'];
             return $key .";" . $value;
         }
         
@@ -704,12 +719,14 @@ final class CDB
     private function getData($url)
     {
         $resource = $this->host . $this->port . $this->resource . $url;
+        error_log("Eve_JDD_GetData_" . var_export($resource, true));
         $response = null;
 //        $time_pre = microtime(true);
         if ($content = @file_get_contents($resource)) {
 //            $time_post = microtime(true);
 //            error_log("Fase1: " .($time_post - $time_pre) . " seconds");
             $response = json_decode($content, true);
+            error_log("Eve_JDD_GetData_response_" . var_export($response, true));
             if (! $this->debug && intval($response['returnCode']) !== 1) {
                 if(intval($response['returnCode']) === -69){
                     $_SESSION['fieldsValidatingDialog'] = true;
