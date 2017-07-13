@@ -953,21 +953,19 @@ $(document).ready(function () {
                 } else if ($('#form form').hasClass("current")
                     && ($('.validation').length > $('.validation.validation-pressed').length))
                     {
-                    if (!confirm("There are fields unconfirmed. Do you want to continue?")) {
-                        e.preventDefault();
-//                        $(".validation").removeClass("validation-pressed");
-//                        enableFields = false;
-                    } else {
-//                        $("#form form :input").prop("disabled", false);
-                         styleChange(false);
-//                         saveDatanextAndSave();
-//                         $(".validation").removeClass("validation-pressed");
-                    }
-                }else{
+                        var unconfirmedSectionName = $('.validation').not('.validation-pressed').first().parent().prev().children('legend').text().trim();
+                        $('#unconfirmedSectionName').text(unconfirmedSectionName);
+                        $('#unconfirmedSectionDiv').removeClass('hidden');
+                        //$('#unconfirmedSectionDiv').focus();
+                        $('html,body').animate({scrollTop: 0}, 300, function() {
+                            $('#unconfirmedSectionDiv').focus();
+                        });
+                        try{ e.preventDefault();}
+                        catch(e) {}
+                    }else{
 //                    saveDatanextAndSave();
                 }
 
-                
             }
         }
     });
@@ -1031,18 +1029,19 @@ $(document).ready(function () {
             styleChange(true);
             return false;
         } else if ($('#form form').hasClass("current")
-            && ($('.validation').length > $('.validation.validation-pressed').length))
-            {
-            if (!confirm("There are fields unconfirmed. Do you want to continue?")) {
+            && ($('.validation').length > $('.validation.validation-pressed').length)) {
+                var unconfirmedSectionName = $('.validation').not('.validation-pressed').first().parent().prev().children('legend').text().trim();
+                $('#unconfirmedSectionName').text(unconfirmedSectionName);
+                $('#unconfirmedSectionDiv').removeClass('hidden');
+                //$('#unconfirmedSectionDiv').focus();
+                $('html,body').animate({scrollTop: 0}, 300, function() {
+                    $('#unconfirmedSectionDiv').focus();
+                });
+
+            try{
                 e.preventDefault();
-                return false;
-            } else {
-//                        $("#form form :input").prop("disabled", false);
-                 styleChange(false);
-                 return true;
-//                         saveDatanextAndSave();
-//                         $(".validation").removeClass("validation-pressed");
-            }
+            }catch(e) {}
+            return false;
         }else{
             return true;
 //                    saveDatanextAndSave();
