@@ -63,13 +63,7 @@
         <div class="float-right">
             <!--{$attributes.contact_osh_mainphone} -->
             {$attributes.contact_osh_positionmaincontactperson}
-            {if $mf || $partner_type == "current"}
-                <div class="disabledEmailForMF">
-            {/if}
             {$attributes.contact_osh_mainemail}
-            {if $mf || $partner_type == "current"}
-                </div>
-            {/if}
             {if !$mf && $partner_type != "current" && !$locked}
                 {$attributes.contact_osh_confirm_mainemail}
             {/if}

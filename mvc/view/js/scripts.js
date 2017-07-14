@@ -889,6 +889,7 @@ $(document).ready(function () {
         submit: function (e) {
             if (buttonPressed == "next") {
 //                var enableFields = true;
+                var field = null;
                 validateConfirmEmail();
                 if ($(".main-form input[data-error='true']").length ||
                     $(".main-form textarea[data-error='true']").length ||
@@ -910,7 +911,20 @@ $(document).ready(function () {
                         if(captchaAndFieldDialog){
                             $("#captchaAndFieldDialog").removeClass('hidden');
                         }else{
+                            var first = $(".main-form [data-error='true']").first();
+                            var fillRequiredFieldName = "";
+                            if (first != null && first.hasClass(('company_osh_logoimage_popup-modal')))
+                                //fillRequiredFieldName = first.parent().find('label').text().trim();
+                                fillRequiredFieldName = "Logo";
+                            //else fillRequiredFieldName = first.parent().prev().children('label').text().trim();
+                            else
+                                fillRequiredFieldName = $('label[for="'+ first.attr('id') +'"]').text().trim();
+
+                            $('#fillRequiredFieldName').text(fillRequiredFieldName);
                             $("#fillRequiredDialog").removeClass('hidden');
+                            $('html,body').animate({scrollTop: 0}, 300, function() {
+                                $('#fillRequiredDialog').focus();
+                            });
                         }
                     }
 //                    document.location.href = "#top";
@@ -921,12 +935,24 @@ $(document).ready(function () {
                     styleChange(true);
                     e.preventDefault();
                     return false;
-                } else if (!checkRequiredFields()) {
+                } else if ((field = checkRequiredFields()) != null) {
 //                    alert("Error: You must fill all the required fields");
                     if($("#container-message").length > 0){
                         closeGreyBox();
                     }
+                    var fillRequiredFieldName = "";
+                    if (first != null && first.hasClass(('company_osh_logoimage_popup-modal')))
+                    //fillRequiredFieldName = first.parent().find('label').text().trim();
+                        fillRequiredFieldName = "Logo";
+                    //else fillRequiredFieldName = first.parent().prev().children('label').text().trim();
+                    else
+                        fillRequiredFieldName = $('label[for="'+ first.attr('id') +'"]').text().trim();
+
+                    $('#fillRequiredFieldName').text(fillRequiredFieldName);
                     $("#fillRequiredDialog").removeClass('hidden');
+                    $('html,body').animate({scrollTop: 0}, 300, function() {
+                        $('#fillRequiredDialog').focus();
+                    });
 //                    document.location.href = "#top";
 
                     document.body.scrollTop = document.documentElement.scrollTop = 0;
@@ -992,7 +1018,19 @@ $(document).ready(function () {
                 if(captchaAndFieldDialog){
                     $("#captchaAndFieldDialog").removeClass('hidden');
                 }else{
+                    var first = $(".main-form [data-error='true']").first();
+                    var fillRequiredFieldName = "";
+                    if (first != null && first.hasClass(('company_osh_logoimage_popup-modal')))
+                    //fillRequiredFieldName = first.parent().find('label').text().trim();
+                        fillRequiredFieldName = "Logo";
+                    //else fillRequiredFieldName = first.parent().prev().children('label').text().trim();
+                    else
+                        fillRequiredFieldName = $('label[for="'+ first.attr('id') +'"]').text().trim();
+                    $('#fillRequiredFieldName').text(fillRequiredFieldName);
                     $("#fillRequiredDialog").removeClass('hidden');
+                    $('html,body').animate({scrollTop: 0}, 300, function() {
+                        $('#fillRequiredDialog').focus();
+                    });
                 }
             }
 //                    document.location.href = "#top";
@@ -1002,12 +1040,17 @@ $(document).ready(function () {
             }
             styleChange(true);
             return false;
-        } else if (!checkRequiredFields()) {
+        } else if ((field = checkRequiredFields()) != null) {
 //                    alert("Error: You must fill all the required fields");
             if($("#container-message").length > 0){
                 closeGreyBox();
             }
+            var fillRequiredFieldName = field.parent().prev().children('label').text().trim();
+            $('#fillRequiredFieldName').text(fillRequiredFieldName);
             $("#fillRequiredDialog").removeClass('hidden');
+            $('html,body').animate({scrollTop: 0}, 300, function() {
+                $('#fillRequiredDialog').focus();
+            });
 //                    document.location.href = "#top";
             document.body.scrollTop = document.documentElement.scrollTop = 0;
             if(window.parent.document.getElementsByClassName("top_anchor").length == 1){
@@ -1106,7 +1149,7 @@ $(document).ready(function () {
      */
     function checkRequiredFields() {
         var ret = true;
-        var field;
+        var field = null;
         $("#form form .required .controls").each(function (id, item) {
             //WorkAround main contact change
 //            if($(item).find("input[type=text]").attr("data-section") == "PRIMARY_CONTACT" && $('#contact_osh_maincontactchange').prop('checked')){
@@ -1115,22 +1158,22 @@ $(document).ready(function () {
             if (field = $(item).find("input[type=text]")) {
                 if ($(field).attr("data-section") && !$(field).val()) {
                     ret = false;
-                    return false;
+                    return field;
                 }
             } else if (field = $(item).find("textarea")) {
                 if ($(field).attr("data-section") && !$(field).val()) {
                     ret = false;
-                    return false;
+                    return field;
                 }
             } else if (field = $(item).find("select")) {
                 if ($(field).attr("data-section") && !$(field).val()) {
                     ret = false;
-                    return false;
+                    return field;
                 }
             }
         });
         
-        return ret;
+        return null;
     }
     
     function checkRequiredFieldsSubmit(){
@@ -1270,7 +1313,7 @@ $(document).ready(function () {
 //            $('#form form :input[data-section="' + dataSection + '"]').prop("disabled", false);
                 $('#form form :input[data-section="' + dataSection + '"]').prop("onlyread", false);
                 $('#form form :input[data-section="' + dataSection + '"]').each(function (id, item) {
-                    if($(item).attr('id') != "contact_osh_mainemail" || $('.disabledEmailForMF').length == 0){
+                    if(($(item).attr('id') != "contact_osh_mainemail" || $('.disabledEmailForMF').length == 0) && $(item).attr('id').indexOf("clone") == -1){
                         $(item).css({
                             'pointer-events': 'inherit'
                         });
