@@ -255,7 +255,7 @@
     "company_osh_country": "osh_country",
     "company_osh_generalemail":"osh_generalemail",
     "company_osh_generalphone":"osh_generalphone",
-    "company_osh_prefixgeneralphone":"osh_prefixphone1",
+    "company_osh_prefixgeneralphone":"osh_prefixgeneralphone",
     "company_osh_zipcode": "osh_zipcode",
     "company_osh_orgname": "osh_orgname",
     "company_osh_orgtype": "osh_orgtype",
