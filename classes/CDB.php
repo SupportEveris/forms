@@ -324,7 +324,6 @@ final class CDB
             }
             $responseFixed[$key] = $value;
         }
-        error_log("EVE_JDD_setOtherUsersField3_" . var_export($response, true));
 
         foreach($response2 as $key => $value){
             foreach($value['Fields'] as $key2 => $value2){
