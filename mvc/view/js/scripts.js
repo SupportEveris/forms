@@ -377,7 +377,7 @@ function validaImagenes(section) {
         var ret = false;
         $("#sidebar-top .section").each(function (id, item) {
             var elemId = $(item).attr("data-section");
-            var validateElement ="#" + elemId + " >div.validation";
+            var validateElement = $("#"+ elemId).parent().next().find(">div.validation");
             if ($("#" + elemId).length) {
                // console.log(elemId + ".length: " +$("#" + elemId).length);
                 $("." + elemId).addClass("sidebar-error");
@@ -394,12 +394,12 @@ function validaImagenes(section) {
 //                }
                 if(validaImagenes(elemId) && checkSingleSection(elemId))
                 {
-                 ////Va bien
-                    if($(validateElement).is(":visible"))
+                 ////Los campos tienen valor
+                    if(validateElement.is(":visible"))
                     {
                         //Si tiene el check verde visible
                         //Comprobamos que esté presionado
-                        if($(validateElement).hasClass("validation-pressed"))
+                        if(validateElement.hasClass("validation-pressed"))
                         {
                             $("." + elemId).removeClass("sidebar-error");//Se pone en verde
                         }
@@ -408,7 +408,8 @@ function validaImagenes(section) {
                          $("." + elemId).removeClass("sidebar-error");//Se pone en verde
                     }
 
-                }else
+                }
+                else
                 {
                      //Falla
                     
@@ -1305,7 +1306,6 @@ $(document).ready(function () {
      * Validation widget
      */
     $(".validation").click(function (e) {
-        checkSections();//Comprueba la validez de las secciones en el menu izquierdo
         //Recorre todos los elementos que contienen la validación de la seccion actual
         var dataSection = $(this).attr("data-section");
         if ($(this).hasClass("validation-pressed")) {
@@ -1394,7 +1394,7 @@ $(document).ready(function () {
                     }
                 });
                 
-                
+
                 $(this).addClass("validation-pressed");
 
                 if(dataSection=="GENERAL_INFORMATION"){
@@ -1452,7 +1452,9 @@ $(document).ready(function () {
                 }
                 }
         }
-        
+        checkSections();//Comprueba la validez de las secciones en el menu izquierdo
+
+
     });
 
     function setCheckSectionAttributte(dataSection,check){

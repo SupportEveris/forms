@@ -155,8 +155,13 @@ class Renderer {
                     error_log("EVE_JDD_RENDER_3_" . var_export($contentArray, true));
                 }
             }
+
             $content = $dwoo->get($this->basePath . $this->bodyTpl, $contentArray);
             $content = str_ireplace('&nbsp;on', ' YES', $content);
+            error_log("EVE_JDD_" . var_export($content, true));
+            $content = preg_replace("/Telephone prefix:<\/strong><\/div>\s+<div><strong><\/strong>/", "Telephone prefix:</strong>", $content);
+            error_log("EVE_JDD_" . var_export($content, true));
+            //$content = str_ireplace('Telephone prefix:</strong></div><div><strong></strong>', 'Telephone prefix:</strong>', $content);
         }
         if ($this->includeHeaderFooter) {
             $this->setViewPath($this->htmlPath);

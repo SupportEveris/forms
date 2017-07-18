@@ -341,17 +341,17 @@
     },
     "osh_gencontactinfsection": {
       "name": "osh_gencontactinfsection",
-      "section": "ORGANISATION",
+      "section": "COMMUNICATION_REP",
       "type": "text"
     },
     "osh_aboutyourceosection": {
       "name": "osh_aboutyourceosection",
-      "section": "ORGANISATION",
+      "section": "CEO",
       "type": "text"
     },
     "osh_aboutyourrepsection": {
       "name": "osh_aboutyourrepsection",
-      "section": "ORGANISATION",
+      "section": "OSH",
       "type": "text"
     },
     "company_osh_category": {
