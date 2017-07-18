@@ -1,6 +1,6 @@
 {
   "cdb": {
-    "host": "https://jira.osha.europa.eu",
+    "host": "http://crm-dev-svr",
     "port": ":8081",
     "resource": "/OshaService/ServiceApp.svc/",
     "debug": "false",
