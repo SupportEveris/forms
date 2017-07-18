@@ -1,6 +1,6 @@
 {
   "cdb": {
-    "host": "http://crm-dev-svr",
+    "host": "https://jira.osha.europa.eu",
     "port": ":8081",
     "resource": "/OshaService/ServiceApp.svc/",
     "debug": "false",
@@ -30,7 +30,6 @@
         "fields": [
           "comrep_osh_prefixmediaprphone",
           "contact_osh_prefixmaincontactphone",
-          "contact_osh_prefixmaincontactphone_clone",
           "company_osh_prefixgeneralphone",
           "company_osh_prefixrepresentativephone",
           "contact_osh_otheruserprefix1",
@@ -56,9 +55,7 @@
       "update": "UpdateAppForm",
       "update_mf": "UpdateMantenainceProfile",
       "satisfaction": "SubmitSatisfaction",
-      "satisfaction_mf": "SubmitSatisfaction",
-      "question": "SubmitQuestion",
-      "question_mf": "SubmitQuestion"
+      "satisfaction_mf": "SubmitSatisfaction"
     },
     "category": {
       "official": "ocp",
