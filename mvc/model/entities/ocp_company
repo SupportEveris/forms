@@ -527,6 +527,7 @@
     "comrep_osh_mediaproshfirstname": "osh_mediaproshfirstname",
     "comrep_osh_mediaproshlastname" : "osh_mediaproshlastname",
     "comrep_osh_prefixmediaprphone" : "osh_prefixmediaprphone",
+    "comrep_osh_emailmediapr" : "osh_emailmediapr",
     "comrep_osh_phonemediapr" : "osh_phonemediapr"
   }
 }

@@ -329,9 +329,11 @@ final class CDB
             foreach($value['Fields'] as $key2 => $value2){
                 if(isset($value['Fields']['osh_campaigncontacttype']) && $value['Fields']['osh_campaigncontacttype'] == 2){
                     $keyValue = $this->setUserRepresentativeFields($value, $key2, $value2);
-                }else if(isset($value['Fields']['osh_campaigncontacttype']) && $value['Fields']['osh_campaigncontacttype'] == 3){
+                } else if(isset($value['Fields']['osh_campaigncontacttype']) && $value['Fields']['osh_campaigncontacttype'] == 3){
                     $keyValue = $this->setCeoFields($value, $key2, $value2);
-                }else{
+                } else if(isset($value['Fields']['osh_campaigncontacttype']) && $value['Fields']['osh_campaigncontacttype'] == 4){
+                    $keyValue = $this->setUserCOMRepresentativeFields($value, $key2, $value2);
+                } else{
                     $keyValue = $this->setOtherUsersField($key, $value, $key2, $value2);
                 }
                 $responseFixed[$this->before(';',$keyValue)] = $this->after(';',$keyValue);
@@ -423,6 +425,29 @@ final class CDB
             return $key .";" . $value;
         }
         
+    }
+    public function setUserCOMRepresentativeFields($value, $key2, $value2){
+        if($key2 == "firstname"){
+            $key = "osh_mediaproshfirstname";
+            $value = $value2;
+            return $key .";" . $value;
+        }else if ($key2 == "lastname"){
+            $key = "osh_mediaproshlastname";
+            $value = $value2;
+            return $key .";" . $value;
+        }else if($key2 == "telephone1"){
+            $key = "osh_phonemediapr";
+            $value = $value2;
+            return $key .";" . $value;
+        }else if($key2 == "emailaddress1"){
+            $key = "osh_emailmediapr";
+            $value = $value2;
+            return $key .";" . $value;
+        }else if($key2 == "osh_prefixphone1") {
+            $key = "osh_prefixmediaprphone";
+            $value = $value2['Id'];
+            return $key .";" . $value;
+        }
     }
     function after ($a, $inthat)
     {
