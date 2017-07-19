@@ -921,6 +921,10 @@ $(document).ready(function () {
                             else
                                 fillRequiredFieldName = $('label[for="'+ first.attr('id') +'"]').text().trim();
 
+                            if (fillRequiredFieldName == "") {
+                                fillRequiredFieldName = "To agree with all the requirements";
+                            }
+
                             $('#fillRequiredFieldName').text(fillRequiredFieldName);
                             $("#fillRequiredDialog").removeClass('hidden');
                             $('html,body').animate({scrollTop: 0}, 300, function() {
@@ -948,6 +952,10 @@ $(document).ready(function () {
                     //else fillRequiredFieldName = first.parent().prev().children('label').text().trim();
                     else
                         fillRequiredFieldName = $('label[for="'+ first.attr('id') +'"]').text().trim();
+
+                    if (fillRequiredFieldName == "") {
+                        fillRequiredFieldName = "To agree with all the requirements";
+                    }
 
                     $('#fillRequiredFieldName').text(fillRequiredFieldName);
                     $("#fillRequiredDialog").removeClass('hidden');
@@ -1027,6 +1035,11 @@ $(document).ready(function () {
                     //else fillRequiredFieldName = first.parent().prev().children('label').text().trim();
                     else
                         fillRequiredFieldName = $('label[for="'+ first.attr('id') +'"]').text().trim();
+
+                    if (fillRequiredFieldName == "") {
+                        fillRequiredFieldName = "To agree with all the requirements";
+                    }
+
                     $('#fillRequiredFieldName').text(fillRequiredFieldName);
                     $("#fillRequiredDialog").removeClass('hidden');
                     $('html,body').animate({scrollTop: 0}, 300, function() {

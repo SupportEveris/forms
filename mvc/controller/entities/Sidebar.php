@@ -132,7 +132,7 @@ class Sidebar extends Controller implements IController
 
 
 
-            foreach ($sections as $section => $value) {
+            /*foreach ($sections as $section => $value) {
                    if($section == "ORGANISATION" && !$aboutyourorgsection){
                     $sections[$section] = 0;
                 }elseif($section == "GENERAL_INFORMATION" && !$gencontactinfsection){
@@ -154,7 +154,7 @@ class Sidebar extends Controller implements IController
                 }elseif($section == "START" && !$startsection){
                     $sections[$section] = 0;
                 }
-            }
+            }*/
 
             foreach ($attributes as $name => &$attribute) {
                 if($params->getUrlParamValue('partner_type') == 'current' && $name == 'contact_osh_confirm_mainemail'){
