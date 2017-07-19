@@ -1323,7 +1323,7 @@ $(document).ready(function () {
         var dataSection = $(this).attr("data-section");
         if ($(this).hasClass("validation-pressed")) {
             setCheckSectionAttributte(dataSection,false);
-                $('#form form :input[data-section="' + dataSection + '"]').prop("disabled", false);
+ //               $('#form form :input[data-section="' + dataSection + '"]').prop("disabled", false);
                 $('#form form :input[data-section="' + dataSection + '"]').prop("onlyread", false);
                 $('#form form :input[data-section="' + dataSection + '"]').each(function (id, item) {
                     if(($(item).attr('id') != "contact_osh_mainemail" || $('.disabledEmailForMF').length == 0) && $(item).attr('id') != null && $(item).attr('id').indexOf("clone") == -1){
@@ -1390,7 +1390,7 @@ $(document).ready(function () {
 //            }
             if(checkSectionsforValidation(dataSection) || !validateSection){
                 setCheckSectionAttributte(dataSection,true);
-                $('#form form :input[data-section="' + dataSection + '"]').prop("disabled", "disabled");
+//                $('#form form :input[data-section="' + dataSection + '"]').prop("disabled", "disabled");
                 $('#form form :input[data-section="' + dataSection + '"]').prop("onlyread", "onlyread");
 //                $('#form form :input[data-section="' + dataSection + '"]').css({
 //                    'pointer-events': 'none',
