@@ -199,6 +199,10 @@ class Sidebar extends Controller implements IController
                     if($sections[$section] && $params->getUrlParamValue('partner_type') == 'current' && $section == "OSH" && !$aboutyourrepsection){
                                     $sections[$section] = 0;
                                 }
+                    //Workaround COMREP section -> Not have required fields
+                    if($sections[$section] && $params->getUrlParamValue('partner_type') == 'current' && $section == "COMMUNICATION_REP" && !$aboutyourcomrepsection){
+                        $sections[$section] = 0;
+                    }
 
                     if($sections[$section] && $section == "START" && !$startsection){
                         $sections[$section] = 0;
