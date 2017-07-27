@@ -2474,12 +2474,16 @@ $(document).ready(function () {
 
     $(".helpSection").on({
             click: function () {
+                var top = $("html").scrollTop() + 200;
                 $(this).addClass("helpPressed");
                 $(".helpDialog").removeClass("hidden");
                 $(".helpDialog").dialog({
                         title:"Submit a question",
                         width:"33%",
+                        position: { my: "center", at: "center", of: window } ,
                         modal:true,
+                        hide: 'fold',
+                        show: 'blind',
                         buttons: [
                             {
                                 text: "SEND",
