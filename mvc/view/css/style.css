@@ -717,14 +717,10 @@ textarea.error {
 .main-contact-change-backup {
     /* -display : none; */
 }
+
 .main-contact-change-clone{
     margin-bottom: 450px;
 }
-
-.main-contact-change-clone{
-    margin-bottom: 600px;
-}
-
 
 .mainContactCheck label{
     display: inline;

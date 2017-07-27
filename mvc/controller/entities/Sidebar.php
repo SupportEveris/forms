@@ -189,7 +189,7 @@ class Sidebar extends Controller implements IController
                                     $sections[$section] = 0;
                                 }elseif($section == "COMMUNICATION_REP" && !$aboutyourcomrepsection){
                                     $sections[$section] = 0;
-                                }elseif($section == "START" && !$startsection){
+                                }elseif($section == "START" && !$startsection && $params->getUrlParamValue('partner_type') != 'current'){
                                     $sections[$section] = 0;
                                 }
                             }
@@ -204,7 +204,7 @@ class Sidebar extends Controller implements IController
                         $sections[$section] = 0;
                     }
 
-                    if($sections[$section] && $params->getUrlParamValue('partner_type') == 'current' && $section == "START" && !$startsection){
+                    if($sections[$section] && $section == "START" && !$startsection && $params->getUrlParamValue('partner_type') != 'current'){
                         $sections[$section] = 0;
                     }
                 }

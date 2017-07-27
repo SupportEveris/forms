@@ -177,7 +177,8 @@
       "label": "Telephone prefix",
       "placeholder": "+00",
       "section": "GENERAL_INFORMATION",
-      "type": "dropdown"
+      "type": "dropdown",
+      "validator": "not_null"
     },
     "company_osh_homepage": {
       "name": "company_osh_homepage",
@@ -526,6 +527,7 @@
     "comrep_osh_mediaproshfirstname": "osh_mediaproshfirstname",
     "comrep_osh_mediaproshlastname" : "osh_mediaproshlastname",
     "comrep_osh_prefixmediaprphone" : "osh_prefixmediaprphone",
+    "comrep_osh_emailmediapr" : "osh_emailmediapr",
     "comrep_osh_phonemediapr" : "osh_phonemediapr"
   }
 }
