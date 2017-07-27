@@ -650,6 +650,7 @@ final class CDB
      */
     private function buildUrl($method)
     {
+
         if ($this->debug) {
             $url = $method['name'];
         } else {
@@ -865,12 +866,16 @@ final class CDB
         $updateMethod = $this->getMethod('update', 'update_mf');
         
         $urlBase          = $this->host . $this->port . $this->resource . $updateMethod;
-        
+
+        //obtain gecos
+        $gecos = $_GET['gecos'];
+        if ($gecos == "")
+            $gecos = $id;
+
         if(isset($id)){
-            
-            $url = $urlBase . "?" . $id ."&" .$otherusers ."&" .$paises;
+            $url = $urlBase . "?" . $id ."&" .$otherusers ."&" . $paises . '&gecos=' . $gecos;
         }else{
-            $url = $urlBase . "?" . $otherusers ."&" .$paises;
+            $url = $urlBase . "?" . $otherusers ."&" . $paises . '&gecos=' . $gecos;
         }
         $url = $url. "&option=" .$parameters['option'];
         $ch = curl_init();
