@@ -328,7 +328,7 @@
     "contact_osh_positionmaincontactperson": "osh_position",
     "contact_osh_mainemail": "emailaddress1",
     "contact_osh_mainphone": "telephone1",
-    "contact_osh_prefixmaincontactphone": "osh_prefixmaincontactphone",
+    "contact_osh_prefixmaincontactphone": "osh_prefixphone1",
     "contact_osh_category": "osh_category",
     "contact_osh_otherusername1": "fullname1",
     "contact_osh_otherusermail1": "osh_otheruseremail1",
