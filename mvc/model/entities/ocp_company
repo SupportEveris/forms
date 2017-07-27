@@ -187,8 +187,7 @@
       "placeholder": "http(s)://www.example.com",
       "publicProfile": "publicProfile",
       "section": "GENERAL_INFORMATION",
-      "type": "text",
-      "validator": "not_null"
+      "type": "text"
     },
     "company_osh_dedicatedsite": {
       "name": "company_osh_dedicatedsite",
@@ -197,7 +196,8 @@
       "placeholder": "http(s)://www.example.com",
       "publicProfile": "publicProfile",
       "section": "GENERAL_INFORMATION",
-      "type": "text"
+      "type": "text",
+      "validator": "not_null"
     },
     "company_osh_dedicatedcampaignsite": {
       "name": "company_osh_dedicatedcampaignsite",
