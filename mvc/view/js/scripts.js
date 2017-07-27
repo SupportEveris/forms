@@ -436,8 +436,8 @@ function checkSectionsforValidation(elemId) {
 checkSections();
 $(document).ready(function () {
     var buttonPressed;
-
-    $(".checkbox input").each(function (id, item) {
+    
+    $("input:checkbox.checkbox").each(function (id, item) {
         //WorkAround main contact change
         if($(item).prop('checked')){
             $(item).val('on');
@@ -445,6 +445,15 @@ $(document).ready(function () {
             $(item).val('');
         }
     });
+    /*
+    $("input:checkbox.combined-checkbox-link").each(function (id, item) {
+        //WorkAround main contact change
+        if($(item).prop('checked')){
+            $(item).val('on');
+        }else{
+            $(item).val('false');
+        }
+    });*/
 
     if ($('[name=contact_osh_basicrequirements]:checked').val() == '') {
         $('[for=contact_osh_basicrequirements]').parent().append('<div id="requirements_errormsg" class="error-msg">You must accept to continue</div>');
@@ -693,8 +702,7 @@ $(document).ready(function () {
         }
     });
 
-
-    $(".checkbox input").on({
+    $("input:checkbox.checkbox").on({
             click:function () {
                 //WorkAround main contact change
                 if ($(this).prop('checked')) {
@@ -703,6 +711,21 @@ $(document).ready(function () {
                     $(this).val('');
                 }
             }
+    });
+
+    $("input:checkbox.combined-checkbox-link").on({
+        click:function () {
+            //WorkAround main contact change
+            if ($(this).prop('checked')) {
+                $(this).val('on');
+                $("#"+$(this).attr('for')).val('true');
+                $("#"+$(this).attr('for')).text('true');
+            } else {
+                $(this).val('false');
+                $("#"+$(this).attr('for')).val('false');
+                $("#"+$(this).attr('for')).text('false');
+            }
+        }
     });
 
     $(".main-form .required input").on({
@@ -1137,6 +1160,7 @@ $(document).ready(function () {
                 valueLogoImage = valueLogoImage.replace("\s", "+");
                 serializedForm += "&company_osh_ceoimage="+valueLogoImage;
             }
+
             var dataAjax = "?action=savesessionajax";
             $.ajax({
                 url: dataAjax,
@@ -2117,6 +2141,7 @@ $(document).ready(function () {
             valueLogoImage = valueLogoImage.replace("\s", "+");
             serializedForm += "&company_osh_ceoimage="+valueLogoImage;
         }
+
         $.ajax({
             url: dataAjax,
             data: serializedForm,
@@ -2145,8 +2170,9 @@ $(document).ready(function () {
             valueLogoImage = valueLogoImage.replace("\s", "+");
             serializedForm += "&company_osh_ceoimage="+valueLogoImage;
         }
-        
-        $("body").css("cursor", "progress");
+
+
+         $("body").css("cursor", "progress");
         $.ajax({
             url: dataAjax,
             data: serializedForm,
