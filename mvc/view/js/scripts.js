@@ -2480,7 +2480,7 @@ $(document).ready(function () {
                 $(".helpDialog").dialog({
                         title:"Submit a question",
                         width:"33%",
-                        position: { my: "center", at: "center", of: window } ,
+                        position: { my: "right-150 top", at: "left bottom", of: $(this)} ,
                         modal:true,
                         hide: 'fold',
                         show: 'blind',
