@@ -238,6 +238,14 @@ select[disabled] {
     margin-bottom: 1.5vw;
     margin-top: -2vw;
 }
+
+.separatorSection{
+    border-bottom : 0.1vw solid grey;
+    margin-top: 0.4vw;
+    margin-left: 14px;
+    margin-right: 14px;
+}
+
 .lessSeparator{
     margin-top: -0.5vw;
 }

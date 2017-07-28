@@ -2551,5 +2551,6 @@ $(document).ready(function () {
         document.getElementById("company_osh_orgname").value  = document.getElementById("company_osh_orgname").value;
     }
 
+    $( document ).tooltip();
 
 }); //Fin del document.ready
