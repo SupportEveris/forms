@@ -1125,3 +1125,5 @@ img.congrats_rad{ /* IMAGE STYLES */
 
     background-color: rgb(50, 50, 50) !important; /* This will make it darker */
 }
+
+::-ms-clear { display: none; }
