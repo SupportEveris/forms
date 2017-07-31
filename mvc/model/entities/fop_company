@@ -169,7 +169,8 @@
       "label": "Telephone prefix",
       "placeholder": "+00",
       "section": "GENERAL_INFORMATION",
-      "type": "dropdown"
+      "type": "dropdown",
+      "validator": "not_null"
     },
     "company_osh_homepage": {
       "name": "company_osh_homepage",
