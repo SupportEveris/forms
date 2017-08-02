@@ -2251,17 +2251,19 @@ $(document).ready(function () {
     function validateEmail(email) {
         var correctFormat = false;
         var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        if(!re.test(email.value) && email.value){
-            $('#'+email.id).addClass("error");
-            $('#'+email.id).attr("data-error", "true");
-            if (!$('#'+email.id+'_emailformat_errormsg').length) {
-                $('#'+email.id).parent().append('<div id="'+email.id+'_emailformat_errormsg" class="error-msg">The field must be a valid email address</div>');
+        if (email!= null) {
+            if (!re.test(email.value) && email.value) {
+                $('#' + email.id).addClass("error");
+                $('#' + email.id).attr("data-error", "true");
+                if (!$('#' + email.id + '_emailformat_errormsg').length) {
+                    $('#' + email.id).parent().append('<div id="' + email.id + '_emailformat_errormsg" class="error-msg">The field must be a valid email address</div>');
+                }
+            } else {
+                $('#' + email.id).removeClass("error");
+                $('#' + email.id).attr("data-error", "");
+                $('#' + email.id + '_emailformat_errormsg').remove();
+                correctFormat = true;
             }
-        } else {
-            $('#'+email.id).removeClass("error");
-            $('#'+email.id).attr("data-error", "");
-            $('#'+email.id+'_emailformat_errormsg').remove();
-            correctFormat = true;
         }
         return correctFormat;
     }
