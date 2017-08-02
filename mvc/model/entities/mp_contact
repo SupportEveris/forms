@@ -42,8 +42,7 @@
       "name": "contact_osh_positionmaincontactperson",
       "label": "Position",
       "section": "PRIMARY_CONTACT",
-      "type": "text",
-      "validator": "not_null"
+      "type": "text"
     },
     "contact_osh_positionmaincontactperson_clone": {
       "name": "contact_osh_positionmaincontactperson_clone",
