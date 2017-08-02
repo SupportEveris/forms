@@ -58,7 +58,9 @@
       "satisfaction": "SubmitSatisfaction",
       "satisfaction_mf": "SubmitSatisfaction",
       "question": "SubmitQuestion",
-      "question_mf": "SubmitQuestion"
+      "question_mf": "SubmitQuestion",
+      "requirements": "UpdateRequirements",
+      "requirements_mf": "UpdateRequirements"
     },
     "category": {
       "official": "ocp",

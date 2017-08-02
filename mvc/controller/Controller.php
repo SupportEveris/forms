@@ -830,7 +830,20 @@ abstract class Controller {
         $email= $_GET['email'];
         $currentModel = new Model("");
         $currentModel->submitQuestionToCDB($myId,$title, $message, $email);
+    }
 
+    public function updateRequirements() {
+        $params = Parameters::getInstance();
+        $MyId = $params->getUrlParamValue('session_id');
+        if (preg_match('/^\{?[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}\}?$/', $MyId)) {
+            error_log("EVE_JDD_TEST" . var_export(($MyId), true));
+
+            $requirements = $_GET['requirements'];
+            error_log("EVE_JDD_TEST2" . var_export(($requirements), true));
+
+            $currentModel = new Model("");
+            $currentModel->updateRequirementsInCDB($MyId, $requirements);
+        }
     }
 
 }

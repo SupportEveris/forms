@@ -689,7 +689,9 @@ $(document).ready(function () {
      */
     $('[name=contact_osh_basicrequirements]').on({
         change: function () {
+            var value = false;
             if($('[name=contact_osh_basicrequirements]:checked').val() == 'on'){
+                value = true;
                 if ($('#requirements_errormsg').length) {
                     $('#requirements_errormsg').remove();
                 }
@@ -703,6 +705,26 @@ $(document).ready(function () {
                 $('.progressbar-last').addClass('progressbar-last-disabled').removeClass('progressbar-last');
             }
             validateField(this);
+
+
+            var urlParamsArray = {
+                route: getUrlVar("route"),
+                ajax: true,
+                async: false,
+                action: "updateRequirements",
+                requirements: value
+            };
+            var urlParams = $.param(urlParamsArray);
+            var url = window.location.href;
+            if (url.indexOf("?") != -1) {
+                var pos = url.indexOf("?");
+                url = url.substr(0, pos);
+            }
+            url += "?" + urlParams;
+            $.get(url, function (data, status) {
+
+            });
+
         }
     });
 
