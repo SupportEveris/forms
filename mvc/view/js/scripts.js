@@ -891,8 +891,11 @@ $(document).ready(function () {
         if($("#contact_osh_mainemail").val() != undefined){
             $("#contact_osh_mainemailAux").val($("#contact_osh_mainemail").val());
         }
-        if ($("#contact_osh_mainemail").val() != $("#contact_osh_confirm_mainemail").val() &&
-            (!$("#contact_osh_mainemail").val() == "" && $("#contact_osh_confirm_mainemail").val() != undefined)) {
+        if (!($("#contact_osh_mainemail").val() === "") && !validateEmail($("#contact_osh_mainemail")[0])){
+
+        }else if ($("#contact_osh_mainemail").val() == "" ||
+                ($("#contact_osh_mainemail").val() != $("#contact_osh_confirm_mainemail").val() &&
+                (!$("#contact_osh_mainemail").val() == "" && $("#contact_osh_confirm_mainemail").val() != undefined))) {
             $("#contact_osh_mainemail").addClass("error");
             $("#contact_osh_mainemail").attr("data-error", "true");
             $("#contact_osh_confirm_mainemail").addClass("error");
@@ -2224,6 +2227,7 @@ $(document).ready(function () {
     }
 
     function validateEmail(email) {
+        var correctFormat = false;
         var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         if(!re.test(email.value) && email.value){
             $('#'+email.id).addClass("error");
@@ -2235,7 +2239,9 @@ $(document).ready(function () {
             $('#'+email.id).removeClass("error");
             $('#'+email.id).attr("data-error", "");
             $('#'+email.id+'_emailformat_errormsg').remove();
+            correctFormat = true;
         }
+        return correctFormat;
     }
     if(($('#contact_osh_otherusername1').val() != "" && $('#contact_osh_otherusername1').val() != undefined)
         || ($('#contact_osh_otherusermail1').val() != "" &&$('#contact_osh_otherusermail1').val() != undefined)){
