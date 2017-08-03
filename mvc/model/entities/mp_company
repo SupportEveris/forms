@@ -211,7 +211,8 @@
       "publicProfile": "publicProfile",
       "placeholder": "http(s)://www.example.com",
       "section": "GENERAL_INFORMATION",
-      "type": "text"
+      "type": "text",
+      "validator": "not_null"
     },
     "company_osh_ceo_firstname": {
       "name": "company_osh_ceo_firstname",
