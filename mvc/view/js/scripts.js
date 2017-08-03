@@ -2252,7 +2252,7 @@ $(document).ready(function () {
         var correctFormat = false;
         var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         if (email!= null) {
-            if (!re.test(email.value) && email.value) {
+            if (!re.test(email.value)) {
                 $('#' + email.id).addClass("error");
                 $('#' + email.id).attr("data-error", "true");
                 if (!$('#' + email.id + '_emailformat_errormsg').length) {
@@ -2426,9 +2426,11 @@ $(document).ready(function () {
                 $('#'+web.id+'_webformat_errormsg').remove();
             }
         }else{
-            $('#'+web.id).removeClass("error");
-            $('#'+web.id).attr("data-error", "");
-            $('#'+web.id+'_webformat_errormsg').remove();
+            $('#'+web.id).addClass("error");
+            $('#'+web.id).attr("data-error", "true");
+            if (!$('#'+web.id+'_webformat_errormsg').length) {
+                $('#'+web.id).parent().append('<div id="'+web.id+'_webformat_errormsg" class="error-msg">The field must be a valid web url</div>');
+            }
         }
     }
     $("#nextInLocked").click(function (e) {
