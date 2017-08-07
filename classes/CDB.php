@@ -818,6 +818,8 @@ final class CDB
      */
     private function setDataPost($parameters)
     {
+        error_log(var_export($parameters, true));
+
        if(isset($parameters['id'])){
             $id="id=" .$parameters['id'];
             unset($parameters['id']);
@@ -874,11 +876,11 @@ final class CDB
         $urlBase          = $this->host . $this->port . $this->resource . $updateMethod;
 
         //obtain gecos
-        $auth = $_REQUEST["auth"];
-        error_log("EVE_CSM_SESSION: " . var_export($auth, true));
+        $auth = $_SESSION['auth'];
+        error_log("EVE_CSM_SESSION: " . var_export( $_SESSION['auth'], true));
 
         if(isset($id)){
-            $url = $urlBase . "?" . $id ." &" .$otherusers . "&" . $paises . "&auth=" . $auth;
+            $url = $urlBase . "?" . $id ."&" .$otherusers . "&" . $paises . "&auth=" . $auth;
         }else{
             $url = $urlBase . "?" . $otherusers . "&" . $paises . "&auth=" . $auth;
         }

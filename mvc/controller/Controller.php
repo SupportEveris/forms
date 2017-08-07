@@ -155,6 +155,17 @@ abstract class Controller {
         if ($mf = $params->get('maintenance_mode')) {
             $params->setUrlParamValue('maintenance_mode', $mf);
         }
+
+        if (isset($_REQUEST['auth']))
+            $_SESSION['auth'] = $_REQUEST['auth'];
+
+        //    $params->setUrlParamValue('auth', $auth);
+        /*    if (isset($_REQUEST['auth'])) {
+                $session->setAttribute(Constants::AUTH_NAME, $auth);
+            }
+        }*/
+
+        //error_log("EVE_0708" . var_export($params, true));
         $this->model->load($sessionID);
     }
 
@@ -630,8 +641,11 @@ abstract class Controller {
                 }
         // $result .= ! empty ($updatedValues) ? 'id=' . $params->get('session_id') . '&option=SUBMIT&fields=' . substr($updatedValues, 0, -1) : '';
         //        $result = ! empty ($otherUsers) ? $result . 'otherusers=' . substr($updatedValues, 0, -1) : substr($result, 0, -1);
+        error_log("PARAMS: " . var_export($params, true));
+        error_log("SESSION: " . var_export($_SESSION, true));
         $result = array(
             'id' => $params->get('session_id'),
+            'auth' => $_SESSION['auth'],
             'fields' => $normalValues
 //            'fields' => substr($updatedValues, 0, -1)
         );
