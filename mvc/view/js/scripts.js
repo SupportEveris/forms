@@ -965,8 +965,8 @@ $(document).ready(function () {
                             $("#captchaAndFieldDialog").removeClass('hidden');
                         }else{
                             var first = $(".main-form [data-error='true']").sort(function(a,b) {
-                                return ($(a).attr('id').indexOf("logo")) >= 0 || $(a).attr('id').indexOf("Img") >= 0;
-                            }).first();
+                                return ($(a).attr('id').indexOf("logo") >= 0) || ($(a).attr('id').indexOf("Img") >= 0)|| ($(a).attr('id').indexOf("image") >= 0)?1:-1;
+                            })[0].id;
                             var fillRequiredFieldName = "";
                             if (first != null && first.hasClass(('company_osh_logoimage_popup-modal')))
                             //fillRequiredFieldName = first.parent().find('label').text().trim();
@@ -1000,8 +1000,8 @@ $(document).ready(function () {
                         closeGreyBox();
                     }
                     var first = $(".main-form [data-error='true']").sort(function(a,b) {
-                        return ($(a).attr('id').indexOf("logo")) >= 0 || $(a).attr('id').indexOf("Img") >= 0;
-                    }).first();
+                        return ($(a).attr('id').indexOf("logo") >= 0) || ($(a).attr('id').indexOf("Img") >= 0)|| ($(a).attr('id').indexOf("image") >= 0)?1:-1;
+                    })[0].id;
                     var fillRequiredFieldName = "";
                     if (first != null && first.hasClass(('company_osh_logoimage_popup-modal')))
                     //fillRequiredFieldName = first.parent().find('label').text().trim();
@@ -1085,8 +1085,8 @@ $(document).ready(function () {
                     $("#captchaAndFieldDialog").removeClass('hidden');
                 }else{
                     var first = $(".main-form [data-error='true']").sort(function(a,b) {
-                        return ($(a).attr('id').indexOf("logo")) >= 0 || $(a).attr('id').indexOf("Img") >= 0;
-                    }).first();
+                        return ($(a).attr('id').indexOf("logo") >= 0) || ($(a).attr('id').indexOf("Img") >= 0)|| ($(a).attr('id').indexOf("image") >= 0)?1:-1;
+                    })[0].id;
                     var fillRequiredFieldName = "";
                     if (first != null && first.hasClass(('company_osh_logoimage_popup-modal')))
                     //fillRequiredFieldName = first.parent().find('label').text().trim();
