@@ -126,7 +126,11 @@
         {$attributes.company_osh_country}
         {$attributes.company_osh_prefixgeneralphone}
         {$attributes.company_osh_generalphone}
+        {if !$mf}
         {$attributes.company_osh_dedicatedsite}
+        {else}
+        {$attributes.company_osh_dedicatedcampaignsite}
+        {/if}
 
     </div>
     <!-- <p id="general-text">Please note that all communications related to this application will be addressed to the

@@ -63,7 +63,11 @@
         {$attributes.company_osh_address}
         {$attributes.company_osh_homepage}
         {$attributes.company_osh_zipcode}
+        {if !$mf}
         {$attributes.company_osh_dedicatedsite}
+        {else}
+        {$attributes.company_osh_dedicatedcampaignsite}
+        {/if}
 
         
         <div class="socialNetworks">

@@ -894,6 +894,14 @@ $(document).ready(function () {
         }
     });
 
+    $('#company_osh_dedicatedcampaignsite').on({
+        change: function () {
+            validateWebFormat(this);
+        },  blur: function () {
+            validateWebFormat(this);
+        }
+    });
+
     $('#contact_osh_mainemail').on({
         change: function () {
             validateEmail(this);
@@ -2432,11 +2440,17 @@ $(document).ready(function () {
                 $('#'+web.id).attr("data-error", "");
                 $('#'+web.id+'_webformat_errormsg').remove();
             }
-        }else{
-            $('#'+web.id).addClass("error");
-            $('#'+web.id).attr("data-error", "true");
-            if (!$('#'+web.id+'_webformat_errormsg').length) {
-                $('#'+web.id).parent().append('<div id="'+web.id+'_webformat_errormsg" class="error-msg">The field must be a valid web url</div>');
+        }else {
+            if ($(web).parent().parent().hasClass("required")) {
+                $('#' + web.id).addClass("error");
+                $('#' + web.id).attr("data-error", "true");
+                if (!$('#' + web.id + '_webformat_errormsg').length) {
+                    $('#' + web.id).parent().append('<div id="' + web.id + '_webformat_errormsg" class="error-msg">The field must be a valid web url</div>');
+                }
+            }else{
+                $('#'+web.id).removeClass("error");
+                $('#'+web.id).attr("data-error", "");
+                $('#'+web.id+'_webformat_errormsg').remove();
             }
         }
     }
@@ -2592,7 +2606,7 @@ $(document).ready(function () {
 
     $( document ).tooltip();
 
-    $(".disabledDiv").find("*").attr("readonly","true");
+    //$(".disabledDiv").find("*").attr("readonly","true");
 
 
 }); //Fin del document.ready

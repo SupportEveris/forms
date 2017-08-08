@@ -195,8 +195,7 @@
       "placeholder": "http(s)://www.example.com",
       "publicProfile": "publicProfile",
       "section": "GENERAL_INFORMATION",
-      "type": "text",
-      "validator": "not_null"
+      "type": "text"
     },
     "company_osh_category": {
        "name": "company_osh_category",
@@ -294,7 +293,7 @@
     "company_osh_name": "osh_name",
     "company_osh_logoimage": "osh_logoimage",
     "company_osh_socialdialoguepartner": "osh_socialdialogpartner",
-    "company_osh_dedicatedsite": "osh_dedicatedsite",
+    "company_osh_dedicatedcampaignsite": "osh_dedicatedsite",
     "company_osh_facebookprofile": "osh_facebookprofile",
     "company_osh_pinterestprofile": "osh_pinterestprofile",
     "company_osh_twitterprofile": "osh_twitterprofile",
