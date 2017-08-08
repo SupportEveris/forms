@@ -964,7 +964,9 @@ $(document).ready(function () {
                         if(captchaAndFieldDialog){
                             $("#captchaAndFieldDialog").removeClass('hidden');
                         }else{
-                            var first = $(".main-form [data-error='true']").first();
+                            var first = $(".main-form [data-error='true']").sort(function(a,b) {
+                                return ($(a).attr('id').indexOf("logo")) >= 0 || $(a).attr('id').indexOf("Img") >= 0;
+                            }).first();
                             var fillRequiredFieldName = "";
                             if (first != null && first.hasClass(('company_osh_logoimage_popup-modal')))
                             //fillRequiredFieldName = first.parent().find('label').text().trim();
@@ -997,6 +999,9 @@ $(document).ready(function () {
                     if($("#container-message").length > 0){
                         closeGreyBox();
                     }
+                    var first = $(".main-form [data-error='true']").sort(function(a,b) {
+                        return ($(a).attr('id').indexOf("logo")) >= 0 || $(a).attr('id').indexOf("Img") >= 0;
+                    }).first();
                     var fillRequiredFieldName = "";
                     if (first != null && first.hasClass(('company_osh_logoimage_popup-modal')))
                     //fillRequiredFieldName = first.parent().find('label').text().trim();
@@ -1079,7 +1084,9 @@ $(document).ready(function () {
                 if(captchaAndFieldDialog){
                     $("#captchaAndFieldDialog").removeClass('hidden');
                 }else{
-                    var first = $(".main-form [data-error='true']").first();
+                    var first = $(".main-form [data-error='true']").sort(function(a,b) {
+                        return ($(a).attr('id').indexOf("logo")) >= 0 || $(a).attr('id').indexOf("Img") >= 0;
+                    }).first();
                     var fillRequiredFieldName = "";
                     if (first != null && first.hasClass(('company_osh_logoimage_popup-modal')))
                     //fillRequiredFieldName = first.parent().find('label').text().trim();
