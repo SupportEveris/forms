@@ -2606,7 +2606,7 @@ $(document).ready(function () {
 
     $( document ).tooltip();
 
-    //$(".disabledDiv").find("*").attr("readonly","true");
+    $(".disabledDiv").find("*").attr("readonly","true");
 
 
 }); //Fin del document.ready
