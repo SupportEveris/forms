@@ -1117,6 +1117,10 @@ img.congrats_rad{ /* IMAGE STYLES */
     margin-bottom  : 3vw;
 }
 
+.helpDiv .validation{
+    margin-top: -6px;
+}
+
 
 .ui-widget-overlay
 {
