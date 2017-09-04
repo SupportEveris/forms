@@ -94,7 +94,7 @@
     },
     "contact_osh_otheruserphone1": {
       "name": "contact_osh_otheruserphone1",
-      "placeholder": "(000) 0000 0000",
+      "placeholder": "0000 0000",
       "label": "Telephone of additional user",
       "section": "OTHER_USERS",
       "type": "text"
@@ -121,7 +121,7 @@
     },
     "contact_osh_otheruserphone2": {
       "name": "contact_osh_otheruserphone2",
-      "placeholder": "(000) 0000 0000",
+      "placeholder": "0000 0000",
       "label": "Telephone of additional user",
       "section": "OTHER_USERS",
       "type": "text"
@@ -148,7 +148,7 @@
     },
     "contact_osh_otheruserphone3": {
       "name": "contact_osh_otheruserphone3",
-      "placeholder": "(000) 0000 0000",
+      "placeholder": "0000 0000",
       "label": "Telephone of additional user",
       "section": "OTHER_USERS",
       "type": "text"
@@ -175,7 +175,7 @@
     },
     "contact_osh_otheruserphone4": {
       "name": "contact_osh_otheruserphone4",
-      "placeholder": "(000) 0000 0000",
+      "placeholder": "0000 0000",
       "label": "Telephone of additional user",
       "section": "OTHER_USERS",
       "type": "text"
@@ -202,7 +202,7 @@
     },
     "contact_osh_otheruserphone5": {
       "name": "contact_osh_otheruserphone5",
-      "placeholder": "(000) 0000 0000",
+      "placeholder": "0000 0000",
       "label": "Telephone of additional user",
       "section": "OTHER_USERS",
       "type": "text"
@@ -238,7 +238,7 @@
      },
     "contact_osh_mainphone": {
       "name": "contact_osh_mainphone",
-      "placeholder": "(000) 0000 0000",
+      "placeholder": "0000 0000",
       "label": "Telephone number",
       "section": "PRIMARY_CONTACT",
       "type": "text"

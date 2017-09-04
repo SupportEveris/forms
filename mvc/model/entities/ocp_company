@@ -276,7 +276,7 @@
     "company_osh_phonerepresentative": {
       "name": "company_osh_phonerepresentative",
       "label": "Telephone number",
-      "placeholder": "(000) 0000 0000",
+      "placeholder": "0000 0000",
       "section": "OSH",
       "type": "text"
     },
@@ -414,7 +414,7 @@
     "comrep_osh_phonemediapr": {
       "name": "comrep_osh_phonemediapr",
       "label": "Telephone number",
-      "placeholder": "(000) 0000 0000",
+      "placeholder": "0000 0000",
       "section": "COMMUNICATION_REP",
       "type": "text"
     },

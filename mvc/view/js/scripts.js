@@ -912,6 +912,11 @@ $(document).ready(function () {
             validateEmail(this);
         }
     });
+    $('#comrep_osh_phonemediapr').on({
+        change: function () {
+            validateEmail(this);
+        }
+    });
 
     /**
      * Validate confirmation email

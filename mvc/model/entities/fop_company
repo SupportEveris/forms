@@ -158,7 +158,7 @@
     "company_osh_generalphone": {
       "name": "company_osh_generalphone",
       "label": "General telephone number",
-      "placeholder": "(000) 0000 0000",
+      "placeholder": "0000 0000",
       "publicProfile": "publicProfile",
       "section": "GENERAL_INFORMATION",
       "type": "text",
