@@ -912,7 +912,7 @@ $(document).ready(function () {
             validateEmail(this);
         }
     });
-    $('#comrep_osh_phonemediapr').on({
+    $('#comrep_osh_emailmediapr').on({
         change: function () {
             validateEmail(this);
         }
