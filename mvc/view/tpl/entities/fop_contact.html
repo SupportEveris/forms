@@ -17,8 +17,13 @@
     </legend>
     
     <div class="separatorFieldSet">&nbsp;</div>
-    
-    {if !mf && $partner_type == "current"}<div>{$attributes.contact_osh_maincontactchange}</div>{/if}
+
+    {if $partner_type == "current"}
+    <div>
+        {$attributes.contact_osh_maincontactchange}
+    </div>
+    /if}
+
     <div class="main-contact-change">
         <div class="float-left">
         {$attributes.contact_osh_maincontactpersonfirstname}

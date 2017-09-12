@@ -227,9 +227,9 @@ window.onload = function () {
     if($(".combined-textbox").length > 0){
         $(".combined-textbox").each(function (id, item) {
             if($(item).val() == "Yes."){
-                $('#'+$(item).attr("id")).css({
+                /*$('#'+$(item).attr("id")).css({
                     'color': 'white'
-                });
+                });*/
             }
         });
     }
@@ -909,12 +909,12 @@ $(document).ready(function () {
     });
     $('#company_osh_emailrepresentative').on({
         change: function () {
-            validateEmail(this);
+            validateEmailRepresentative(this);
         }
     });
     $('#comrep_osh_emailmediapr').on({
         change: function () {
-            validateEmail(this);
+            validateEmailRepresentative(this);
         }
     });
 
@@ -1877,13 +1877,13 @@ $(document).ready(function () {
         var target = "#" + $(this).attr("data-target");
         $(target).toggle();
         if ($(target).is(":hidden")) {
-            $(target).val("");
+            ////$(target).val("");
         }else{
             if($(target).val() == ""){
-                $(target).val("Yes.");
-                $(target).css({
+                ////$(target).val("Yes.");
+                /*$(target).css({
                     'color': 'white'
-                });
+                });*/
             }
 //            $(target).css({
 //            'margin-top': '3%'
@@ -2287,6 +2287,32 @@ $(document).ready(function () {
         }
         return correctFormat;
     }
+
+
+    function validateEmailRepresentative(email) {
+        var correctFormat = false;
+        var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        //if (email!= null && email!= "") {
+            if (email != null && email.value != "") {
+                if (!re.test(email.value)) {
+                    $('#' + email.id).addClass("error");
+                    $('#' + email.id).attr("data-error", "true");
+                    if (!$('#' + email.id + '_emailformat_errormsg').length) {
+                        $('#' + email.id).parent().append('<div id="' + email.id + '_emailformat_errormsg" class="error-msg">The field must be a valid email address</div>');
+                    }
+                }
+            } else {
+                $('#' + email.id).removeClass("error");
+                $('#' + email.id).attr("data-error", "");
+                $('#' + email.id + '_emailformat_errormsg').remove();
+                correctFormat = true;
+            }
+        //}
+        return correctFormat;
+    }
+
+
+
     if(($('#contact_osh_otherusername1').val() != "" && $('#contact_osh_otherusername1').val() != undefined)
         || ($('#contact_osh_otherusermail1').val() != "" &&$('#contact_osh_otherusermail1').val() != undefined)){
         nameAndMailFilled1();
@@ -2611,7 +2637,7 @@ $(document).ready(function () {
 
     $( document ).tooltip();
 
-    $(".disabledDiv").find("*").attr("readonly","true");
+    //CSM 05092017 $(".disabledDiv").find("*").attr("readonly","true");
 
 
 }); //Fin del document.ready
