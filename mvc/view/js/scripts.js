@@ -1402,8 +1402,13 @@ $(document).ready(function () {
      */
     $(".validation").click(function (e) {
         //Recorre todos los elementos que contienen la validaciÃ³n de la seccion actual
+
         var dataSection = $(this).attr("data-section");
+
+        debugger;
+
         if ($(this).hasClass("validation-pressed")) {
+
             setCheckSectionAttributte(dataSection,false);
             //               $('#form form :input[data-section="' + dataSection + '"]').prop("disabled", false);
             $('#form form :input[data-section="' + dataSection + '"][type=checkbox]').prop("disabled", false);
@@ -1598,6 +1603,7 @@ $(document).ready(function () {
             }
             $('#' + dataSection + '_check').addClass("hidden");
         }
+
     }
 
     /**
