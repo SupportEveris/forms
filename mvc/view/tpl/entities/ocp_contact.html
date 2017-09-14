@@ -13,7 +13,7 @@
 
 <fieldset>
     <legend id="PRIMARY_CONTACT">
-        Primary Contact
+        About your Main Contact Person
         <img id="PRIMARY_CONTACT_check" class="hidden" src="mvc/view/img/tick_16.png" title="You have validated this section" />
     </legend>
     
@@ -43,9 +43,9 @@
                 {if $mf || $partner_type == "current"}
             </div>
             {/if}
-            {if !$mf && $partner_type != "current" && !$locked}
+            <!--{if !$mf && $partner_type != "current" && !$locked}
                 {$attributes.contact_osh_confirm_mainemail_clone}
-            {/if}
+            {/if}-->
         </div>
     </div>
 
@@ -96,6 +96,7 @@
         <span class="helpIcon" name="helpIcon">?</span>
         <a class="helpButton" name="helpButton">HELP</a>
     </div>
+    <div class="separatorSection">&nbsp;</div>
 </div>
 {/if}
 
@@ -179,6 +180,7 @@
         <span class="helpIcon" name="helpIcon">?</span>
         <a class="helpButton" name="helpButton">HELP</a>
     </div>
+    <div class="separatorSection">&nbsp;</div>
 </div>
 {/if}
 

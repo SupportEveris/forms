@@ -3,12 +3,12 @@
     "title": "1. About your organisation",
     "sections": {
         "ORGANISATION": "About your Organisation",
-        "GENERAL_INFORMATION": "General Contact Information",
-        "CEO": "Information About your CEO"
+        "GENERAL_INFORMATION": "About your General Contact Information",
+        "CEO": "About your CEO"
     },
     "sections_mf": {
         "ORGANISATION": "About your Organisation",
-        "GENERAL_INFORMATION": "General Contact Information"
+        "GENERAL_INFORMATION": "About your General Contact Information"
     }
   },
   "attributes": {
@@ -146,7 +146,7 @@
     },
     "company_osh_generalemail": {
       "name": "company_osh_generalemail",
-      "label": "General email address",
+      "label": "General email Address",
       "publicProfile": "publicProfile",
       "section": "GENERAL_INFORMATION",
       "type": "text",
@@ -166,7 +166,8 @@
     },
     "company_osh_prefixgeneralphone": {
       "name": "company_osh_prefixgeneralphone",
-      "label": "Telephone prefix",
+      "label": "General telephone number Prefix",
+      "helpText": "Select your prefix from the drop-down",
       "placeholder": "+00",
       "section": "GENERAL_INFORMATION",
       "type": "dropdown",
@@ -207,7 +208,7 @@
     },
     "company_osh_ceo_firstname": {
       "name": "company_osh_ceo_firstname",
-      "label": "Your CEO´s name",
+      "label": "CEO´s name",
       "helpText": "Name of your CEO, President, General Director or other.",
       "publicProfile": "publicProfile",
       "section": "CEO",
@@ -216,7 +217,7 @@
     },
     "company_osh_ceo_lastname": {
       "name": "company_osh_ceo_lastname",
-      "label": "Your CEO's surname",
+      "label": "CEO's surname",
       "publicProfile": "publicProfile",
       "section": "CEO",
       "type": "text",
@@ -224,7 +225,7 @@
     },
     "company_osh_ceoimage": {
       "name": "company_osh_ceoimage",
-      "label": "Your CEO's photo",
+      "label": "CEO's photo",
       "publicProfile": "publicProfile",
       "section": "CEO",
       "type": "image",
@@ -232,7 +233,7 @@
     },
     "company_osh_positionid": {
       "name": "company_osh_positionid",
-      "label": "Your CEO's position",
+      "label": "CEO's position",
       "helpText": "Please indicate the actual position, such as President, General Director, CEO, Chairman, etc.",
       "publicProfile": "publicProfile",
       "section": "CEO",
@@ -241,7 +242,7 @@
     },
     "company_osh_quoteonhwc": {
       "name": "company_osh_quoteonhwc",
-      "label": "Your CEO's quote on the Campaign",
+      "label": "CEO's quote on the Campaign",
       "helpText": "This quote will be published together with the CEO’s photo on the campaign website.",
       "publicProfile": "publicProfile",
       "section": "CEO",

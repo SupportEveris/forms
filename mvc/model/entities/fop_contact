@@ -2,10 +2,10 @@
   "sections": {
     "title": "3. About your Main Contact",
     "sections": {
-        "PRIMARY_CONTACT": "Your Primary Contact"
+        "PRIMARY_CONTACT": "About your Main Contact Person"
     },
      "sections_mf": {
-        "PRIMARY_CONTACT": "Your Primary Contact",
+        "PRIMARY_CONTACT": "About your Main Contact Person",
         "OTHER_USERS": "Other users"
     }
   },
@@ -245,7 +245,8 @@
     },
     "contact_osh_prefixmaincontactphone": {
       "name": "contact_osh_prefixmaincontactphone",
-      "label": "Telephone prefix",
+      "label": "Telephone number Prefix",
+      "helpText": "Select your prefix from the drop-down",
       "placeholder": "+00",
       "section": "PRIMARY_CONTACT",
       "type": "dropdown"

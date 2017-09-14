@@ -522,8 +522,17 @@ $(document).ready(function () {
         }else if($(field).attr("id") == 'helpMessage'){
         }else if($(field).attr("id") == 'contact_osh_confirm_mainemail'){
         }else if($(field).attr("id") == 'company_osh_logoimage_file' || $(field).attr("id") == 'company_osh_ceoimage_file'){
-            $(field).removeClass("error");
-            $(field).attr("data-error", "");
+            if (field.files[0] != null) {
+                if (field.files[0].type != "image/png" && field.files[0].type != "image/jpeg") {
+                    alert("The file should be uploaded in png. OR .jpg file format");
+                } else if (field.files[0].size >= 1024) {
+                    alert("The logo should not exceed 1 MB");
+                } else {
+                    $(field).removeClass("error");
+                    $(field).attr("data-error", "");
+                }
+            }
+
         }else if($(field).attr("id") == 'contact_osh_captcha'){
 
             var urlParamsArray = {
@@ -1668,11 +1677,20 @@ $(document).ready(function () {
      */
     $(".guardarImg").click(function (e) {
         var targetElement = "." + $(this).attr("data-target");
+
         if($(targetElement).parent().hasClass('imagePostRequired')){
             $(targetElement).parent().removeClass('imagePostRequired');
         }
         var imageData = $(this).parent().find(".thumbBox").html();
+
+        /*if (imageData.indexOf("image/png") == -1) {
+            alert("no png");
+        } else {
+            alert("png");
+        }*/
+
         $(targetElement).html(imageData);
+
         e.preventDefault();
         $.magnificPopup.close();
         delete $.magnificPopup.instance.popupsCache[$(this).attr("data-cropperkey")];
@@ -2637,7 +2655,8 @@ $(document).ready(function () {
 
     $( document ).tooltip();
 
-    //CSM 05092017 $(".disabledDiv").find("*").attr("readonly","true");
+    //CSM email disable
+    $(".disabledDiv").find("*").attr("readonly","true");
 
 
 }); //Fin del document.ready

@@ -3,12 +3,12 @@
     "title": "1. About your Media Outlet",
     "sections": {
         "ORGANISATION": "About your Media Outlet",
-        "GENERAL_INFORMATION": "General Contact Information",
+        "GENERAL_INFORMATION": "About your General Contact Information",
         "CHIEF": "Editor in Chief"
     },
     "sections_mf": {
         "ORGANISATION": "About your Media Outlet",
-        "GENERAL_INFORMATION": "General Contact Information",
+        "GENERAL_INFORMATION": "About your General Contact Information",
         "CHIEF": "Editor in Chief"
     }
   },
@@ -179,7 +179,7 @@
     },
     "company_osh_generalemail": {
       "name": "company_osh_generalemail",
-      "label": "General email address",
+      "label": "General email Address",
       "publicProfile": "publicProfile",
       "section": "GENERAL_INFORMATION",
       "type": "text",
@@ -199,7 +199,8 @@
     },
     "company_osh_prefixgeneralphone": {
           "name": "company_osh_prefixgeneralphone",
-          "label": "Telephone prefix",
+          "label": "General telephone number Prefix",
+          "helpText": "Select your prefix from the drop-down",
           "publicProfile": "publicProfile",
           "placeholder": "+00",
           "section": "GENERAL_INFORMATION",

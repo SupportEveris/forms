@@ -44,6 +44,7 @@
         <span class="helpIcon" name="helpIcon">?</span>
         <a class="helpButton" name="helpButton">HELP</a>
     </div>
+    <div class="separatorSection">&nbsp;</div>
 </div>
 {/if}
 <fieldset>
@@ -99,6 +100,7 @@
         <span class="helpIcon" name="helpIcon">?</span>
         <a class="helpButton" name="helpButton">HELP</a>
     </div>
+    <div class="separatorSection">&nbsp;</div>
 </div>
 {/if}
 {else}
@@ -106,11 +108,16 @@
 {/if}
 <fieldset>
     <legend id="PLEDGE">
-        Your campaign pledge
+        Your campaign pledge for Publication on Campaign Website
         <img id="PLEDGE_check" class="hidden" src="mvc/view/img/tick_16.png" title="You have validated this section" />
     </legend>
     
     <div class="separatorFieldSet">&nbsp;</div>
+
+    <div id="general-text">
+        Please, remember that your Campaign Pledge will be visible on the Campaign Website.
+    </div>
+
     <div class="marginRightForm">
         {$attributes.involvement_osh_campaignpledge}
     </div>
@@ -124,5 +131,6 @@
         <span class="helpIcon" name="helpIcon">?</span>
         <a class="helpButton" name="helpButton">HELP</a>
     </div>
+    <div class="separatorSection">&nbsp;</div>
 </div>
 {/if}
