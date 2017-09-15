@@ -2662,7 +2662,7 @@ $(document).ready(function () {
     $( document ).tooltip();
 
     //CSM email disable
-    $(".disabledDiv").find("*").attr("readonly","true");
+    //$(".disabledDiv").find("*").attr("readonly","true");
 
 
 }); //Fin del document.ready

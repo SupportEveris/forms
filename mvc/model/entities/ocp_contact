@@ -172,7 +172,7 @@
     },
      "contact_osh_otheruserprefix1": {
        "name": "contact_osh_otheruserprefix1",
-       "label": "Telephone prefix",
+       "label": "Prefix of the telephone of additional user",
        "placeholder": "+00",
        "section": "OTHER_USERS",
        "type": "dropdown"
@@ -199,7 +199,7 @@
     },
       "contact_osh_otheruserprefix2": {
         "name": "contact_osh_otheruserprefix2",
-        "label": "Telephone prefix",
+        "label": "Prefix of the telephone of additional user",
         "placeholder": "+00",
         "section": "OTHER_USERS",
         "type": "dropdown"
@@ -226,7 +226,7 @@
     },
     "contact_osh_otheruserprefix3": {
         "name": "contact_osh_otheruserprefix3",
-        "label": "Telephone prefix",
+        "label": "Prefix of the telephone of additional user",
         "placeholder": "+00",
         "section": "OTHER_USERS",
         "type": "dropdown"
@@ -253,7 +253,7 @@
     },
     "contact_osh_otheruserprefix4": {
         "name": "contact_osh_otheruserprefix4",
-        "label": "Telephone prefix",
+        "label": "Prefix of the telephone of additional user",
         "placeholder": "+00",
         "section": "OTHER_USERS",
         "type": "dropdown"
@@ -280,7 +280,7 @@
     },
     "contact_osh_otheruserprefix5": {
         "name": "contact_osh_otheruserprefix5",
-        "label": "Telephone prefix",
+        "label": "Prefix of the telephone of additional user",
         "placeholder": "+00",
         "section": "OTHER_USERS",
         "type": "dropdown"
