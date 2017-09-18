@@ -522,14 +522,30 @@ $(document).ready(function () {
         }else if($(field).attr("id") == 'helpMessage'){
         }else if($(field).attr("id") == 'contact_osh_confirm_mainemail'){
         }else if($(field).attr("id") == 'company_osh_logoimage_file' || $(field).attr("id") == 'company_osh_ceoimage_file'){
+
             if (field.files[0] != null) {
+                var fieldToDisable = "";
+                if ($(field).attr("id") == "company_osh_ceoimage_file")
+                    fieldToDisable = "company_osh_ceoimage_btnCrop";
+                else if ($(field).attr("id") == "company_osh_logoimage_file")
+                    fieldToDisable = "company_osh_logoimage_btnCrop";
+
                 if (field.files[0].type != "image/png" && field.files[0].type != "image/jpeg") {
                     alert("The file should be uploaded in png. OR .jpg file format");
-                } else if (field.files[0].size >= 1024) {
+                    document.getElementById(fieldToDisable).disabled = true;
+                    document.getElementById(fieldToDisable).style.backgroundColor = "lightgrey";
+                    document.getElementById(fieldToDisable).style.color = "grey";
+                } else if (field.files[0].size >= 1048576) {
                     alert("The logo should not exceed 1 MB");
+                    document.getElementById(fieldToDisable).disabled = true;
+                    document.getElementById(fieldToDisable).style.backgroundColor = "lightgrey";
+                    document.getElementById(fieldToDisable).style.color = "grey";
                 } else {
                     $(field).removeClass("error");
                     $(field).attr("data-error", "");
+                    document.getElementById(fieldToDisable).disabled = false;
+                    document.getElementById(fieldToDisable).style.backgroundColor = "#003399";
+                    document.getElementById(fieldToDisable).style.color = "white";
                 }
             }
 
@@ -1405,7 +1421,6 @@ $(document).ready(function () {
 
         var dataSection = $(this).attr("data-section");
 
-        debugger;
 
         if ($(this).hasClass("validation-pressed")) {
 
@@ -1689,11 +1704,6 @@ $(document).ready(function () {
         }
         var imageData = $(this).parent().find(".thumbBox").html();
 
-        /*if (imageData.indexOf("image/png") == -1) {
-            alert("no png");
-        } else {
-            alert("png");
-        }*/
 
         $(targetElement).html(imageData);
 
@@ -1712,6 +1722,7 @@ $(document).ready(function () {
      * Next action
      */
     $("#next").click(function (e) {
+
         buttonPressed = "next";
         checkSections();
         if(validateNextButtonFieldsAndSections()){
