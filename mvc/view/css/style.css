@@ -834,6 +834,7 @@ input#socialNetworkTextBox{
 }
 .socialNetworks #SocialNetHidden{
     display: none;
+    width: 210%;
 }
 
 
