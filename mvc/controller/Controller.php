@@ -53,7 +53,7 @@ abstract class Controller {
                 //Insertamos una variable para mostrar el check del main contact change.
                 $_SESSION['mainContactChangeCheck'] = true;
             }
-            error_log("EVE_JDD_1: " .  print_r($this->getEntityName(),1));
+            error_log("EVE_CSM_1: " .  print_r($this->getEntityName(),1));
 
             $submitText = isset($params->get('routes')[$route]['submitText']) ? $params->get('routes')[$route]['submitText'] : 'Next';
             $isPrintable = $this->isPrintable();
@@ -598,7 +598,10 @@ abstract class Controller {
                 }else if($key === 'osh_otheruserphone1'){
                     $otherUsers1 .= $value . '|';
                 }else if($key === 'osh_otheruserprefix1'){
-                    $otherUsers1 .= $value . ')';
+                    if ($value != null)
+                        $otherUsers1 .= $value . ')';
+                    else
+                        $otherUsers1 .= ')';
                 }else if($key === 'fullname2'){
                     $otherUsers2 .= '(' . str_replace(" ","+",$value) . '|';
                 }else if($key === 'osh_otheruseremail2'){
@@ -606,7 +609,10 @@ abstract class Controller {
                 }else if($key === 'osh_otheruserphone2'){
                     $otherUsers2 .= $value . '|';
                 }else if($key === 'osh_otheruserprefix2'){
-                    $otherUsers2 .= $value . ')';
+                    if ($value != null)
+                        $otherUsers2 .= $value . ')';
+                    else
+                        $otherUsers2 .= ')';
                 }else if($key === 'fullname3'){
                     $otherUsers3 .= '(' . str_replace(" ","+",$value) . '|';
                 }else if($key === 'osh_otheruseremail3'){
@@ -614,7 +620,10 @@ abstract class Controller {
                 }else if($key === 'osh_otheruserphone3'){
                     $otherUsers3 .= $value . '|';
                 }else if($key === 'osh_otheruserprefix3'){
-                    $otherUsers3 .= $value . ')';
+                    if ($value != null)
+                        $otherUsers3 .= $value . ')';
+                    else
+                        $otherUsers3 .= ')';
                 }else if($key === 'fullname4'){
                     $otherUsers4 .= '(' . str_replace(" ","+",$value) . '|';
                 }else if($key === 'osh_otheruseremail4'){
@@ -622,7 +631,10 @@ abstract class Controller {
                 }else if($key === 'osh_otheruserphone4'){
                     $otherUsers4 .= $value . '|';
                 }else if($key === 'osh_otheruserprefix4'){
-                    $otherUsers4 .= $value . ')';
+                    if ($value != null)
+                        $otherUsers4 .= $value . ')';
+                    else
+                        $otherUsers4 .= ')';
                 }else if($key === 'fullname5'){
                     $otherUsers5 .= '(' . str_replace(" ","+",$value) . '|';
                 }else if($key === 'osh_otheruseremail5'){
@@ -630,7 +642,10 @@ abstract class Controller {
                 }else if($key === 'osh_otheruserphone5'){
                     $otherUsers5 .= $value . '|';
                 }else if($key === 'osh_otheruserprefix5'){
-                    $otherUsers5 .= $value . ')';
+                    if ($value != null)
+                        $otherUsers5 .= $value . ')';
+                    else
+                        $otherUsers5 .= ')';
                 }
             }
         }
@@ -850,10 +865,10 @@ abstract class Controller {
         $params = Parameters::getInstance();
         $MyId = $params->getUrlParamValue('session_id');
         if (preg_match('/^\{?[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}\}?$/', $MyId)) {
-            error_log("EVE_JDD_TEST" . var_export(($MyId), true));
+            error_log("EVE_CSM_TEST" . var_export(($MyId), true));
 
             $requirements = $_GET['requirements'];
-            error_log("EVE_JDD_TEST2" . var_export(($requirements), true));
+            error_log("EVE_CSM_TEST2" . var_export(($requirements), true));
 
             $currentModel = new Model("");
             $currentModel->updateRequirementsInCDB($MyId, $requirements);

@@ -268,7 +268,7 @@ final class CDB
                 }
             }
 
-            error_log("EVE_JDD_SESSION_" . var_export($response, true));
+            error_log("EVE_CSM_SESSION_" . var_export($response, true));
             foreach ($this->cdbMap as $htmlName => $cdbName) {
                 if (isset ($response[$cdbName])) {
                     if (is_array($response[$cdbName]) && isset($response[$cdbName]['Name'])) {
@@ -377,7 +377,12 @@ final class CDB
             return $key .";" . $value;
         }else if($key2 == "osh_prefixphone1") {
             $key = "osh_otheruserprefix".$otherUserId;
-            $value = $value2['Id'];
+            error_log('--- osh_prefixphone1: ');
+            if ($value2['Id'] != null && $value2['Id'] != "") {
+                $value = $value2['Id'];
+            } else {
+                $value = "";
+            }
             return $key .";" . $value;
         }
         
@@ -745,14 +750,14 @@ final class CDB
     private function getData($url)
     {
         $resource = $this->host . $this->port . $this->resource . $url;
-        error_log("Eve_JDD_GetData_" . var_export($resource, true));
+        error_log("Eve_CSM_GetData_" . var_export($resource, true));
         $response = null;
 //        $time_pre = microtime(true);
         if ($content = @file_get_contents($resource)) {
 //            $time_post = microtime(true);
 //            error_log("Fase1: " .($time_post - $time_pre) . " seconds");
             $response = json_decode($content, true);
-            error_log("Eve_JDD_GetData_response_" . var_export($response, true));
+            error_log("Eve_CSM_GetData_response_" . var_export($response, true));
             if (! $this->debug && intval($response['returnCode']) !== 1) {
                 if(intval($response['returnCode']) === -69){
                     $_SESSION['fieldsValidatingDialog'] = true;

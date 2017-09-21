@@ -169,7 +169,7 @@ class Sidebar extends Controller implements IController
                             || ((! is_array($validation)) && (strval($validation) === strval('not_null') || strval($validation) === strval('true')))) {
                             $sections[$section] &= $model->validate($attribute->getName());
                             if($sections[$section] && $params->getUrlParamValue('partner_type') == 'current'){
-                                error_log("EVE_JDD_6_" . var_export($section, true));
+                                error_log("EVE_CSM_6_" . var_export($section, true));
 
                                 if($section == "ORGANISATION" && !$aboutyourorgsection){
                                     $sections[$section] = 0;
@@ -211,7 +211,7 @@ class Sidebar extends Controller implements IController
             }
         }
         $params->set('route', $originalRoute);
-        error_log("EVE_JDD_5_" . var_export($sections, true));
+        error_log("EVE_CSM_5_" . var_export($sections, true));
         return $sections;
     }
 
