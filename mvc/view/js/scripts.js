@@ -51,7 +51,9 @@ function addSN(args)
     var typeSN = args["selOption"].data("sn");
     var nameHiddenToChange = args["selOption"].val();
     var idTitle= nameHiddenToChange + "_title";
-    var url = args["selOption"].data("url") + args["textBox"].val();
+
+    //CSM 20170921 - No quieren que se añada la URL de por defecto
+    var url = /*args["selOption"].data("url") +*/ args["textBox"].val();
 
     var data = [];
     //prepare to fillSN
