@@ -469,11 +469,11 @@ $(document).ready(function () {
         validateField(item);
     });
 
-    disableButtons();
+    //disableButtons();
 
     checkSections();
 
-    //checkSections();
+
     /**
      * Retrieve an URL parameter
      * @param key
@@ -2075,20 +2075,36 @@ $(document).ready(function () {
         $("#container-message").addClass('hidden');
     }
     $(".closeDialog").click(function (e) {
+        debugger;
         $(".dialog").addClass('hidden');
         $(".saveDialog").addClass('hidden');
+        $(".helpDialog").addClass('hidden');
+        scrollToTop();
     });
 
-    $(".closeDialog").click(function (e) {
+    /*$(".closeDialog").click(function (e) {
+        debugger;
         $(".dialog").addClass('hidden');
-        $(".helpDialog").addClass('hidden');
-    });
+
+        scrollToTop();
+    });*/
 
     if($('.disabledEmailForMF').length == 1){
         $("#contact_osh_mainemail").css({
             'pointer-events': 'none',
             'background-color': '#E3E3E4'
         });
+    }
+
+
+
+    function scrollToTop() {
+        debugger;
+        //CSM 20170922 - Scroll up when closing the dialog
+        document.body.scrollTop = document.documentElement.scrollTop = 0;
+        if(window.parent.document.getElementsByClassName("top_anchor").length == 1){
+            window.parent.document.getElementsByClassName("top_anchor")[0].click();
+        }
     }
 
     /**
