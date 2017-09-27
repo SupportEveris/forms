@@ -2738,7 +2738,7 @@ $(document).ready(function () {
                 $(".helpDialog").dialog({
                         title:"Submit a question",
                         width:"33%",
-                        position: { my: "right-150 top", at: "left bottom", of: $(this)} ,
+                        position: { my: "right-175 top", at: "left bottom", of: $(this)} ,
                         modal:true,
                         hide: 'fold',
                         show: 'blind',
@@ -2802,7 +2802,12 @@ $(document).ready(function () {
     );
 
     if(!$(".saveDialog").hasClass('hidden')) {
-        $(".saveDialog").dialog({modal: true});
+        scrollToTop();
+        $(".saveDialog").dialog({
+            position: { my: "center top+75", at: "center", of: "#content"},
+            modal: true,
+            hide: 'fold'
+        });
     }
 
     if (document.getElementById("company_osh_orgname") != null) {
