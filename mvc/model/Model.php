@@ -302,6 +302,8 @@ class Model {
         foreach ($this->attributes as $name => $attribute) {
             $session->setAttribute($attribute->getName(), $attribute->getValue());
 
+
+
             if ($attribute->getType() == Attribute::TYPE_DROPDOWN || $attribute->getType() == Attribute::TYPE_DROPDOWN_MULTIPLE) {
                 $session->setAttribute($attribute->getName() . '_selected', $attribute->getSelectedValues());
             }

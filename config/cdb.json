@@ -1,8 +1,8 @@
 {
   "cdb": {
-    "host": "http://crm-dev-svr",
-    "port": ":8081",
-    "resource": "/OshaService/ServiceApp.svc/",
+    "host": "http://localhost",
+    "port": ":61808",
+    "resource": "/ServiceApp.svc/",
     "debug": "false",
     "debug_folder": "mvc/model/cdb/",
     "dropdown_methods": {

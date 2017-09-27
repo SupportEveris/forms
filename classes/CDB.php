@@ -881,8 +881,14 @@ final class CDB
         $urlBase          = $this->host . $this->port . $this->resource . $updateMethod;
 
         //obtain gecos
-        $auth = $_SESSION['auth'];
-        error_log("EVE_CSM_SESSION: " . var_export( $_SESSION['auth'], true));
+        if (isset($_SESSION['auth'])) {
+            $auth = $_SESSION['auth'];
+            error_log("EVE_CSM_SESSION: " . var_export( $_SESSION['auth'], true));
+        } else {
+            $auth = '';
+            error_log("EVE_CSM_SESSION_ID: " . var_export( $auth, true));
+        }
+
 
         if(isset($id)){
             $url = $urlBase . "?" . $id ."&" .$otherusers . "&" . $paises . "&auth=" . $auth;

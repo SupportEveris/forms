@@ -451,6 +451,18 @@ $(document).ready(function () {
             $(item).val('');
         }
     });
+
+    //EVE CSM 27092017 - Issue checks of media partner
+    $("input:checkbox").on({
+        click:function () {
+            if ($(this).prop('checked')) {
+                document.getElementById($(this)[0].id).value = 'true';
+            } else {
+                document.getElementById($(this)[0].id).value = 'false';
+            }
+        }
+    });
+
     /*
     $("input:checkbox.combined-checkbox-link").each(function (id, item) {
         //WorkAround main contact change
@@ -1015,7 +1027,7 @@ $(document).ready(function () {
     $(".main-form").on({
 
         submit: function (e) {
-
+            debugger;
             if (buttonPressed == "next") {
 //                var enableFields = true;
                 var field = null;
@@ -1130,7 +1142,7 @@ $(document).ready(function () {
                     });
                     try{ e.preventDefault();}
                     catch(e) {}
-                }else{
+                } else{
 //                    saveDatanextAndSave();
                 }
 
@@ -1660,8 +1672,6 @@ $(document).ready(function () {
             }else{
 
 
-
-
                 // alert("Section check cannot be checked until the mandatory fields are filled");
                 if($("#container-message").length > 0){
                     closeGreyBox();
@@ -2075,11 +2085,10 @@ $(document).ready(function () {
         $("#container-message").addClass('hidden');
     }
     $(".closeDialog").click(function (e) {
-        debugger;
         $(".dialog").addClass('hidden');
         $(".saveDialog").addClass('hidden');
         $(".helpDialog").addClass('hidden');
-        scrollToTop();
+        //scrollToTop();
     });
 
     /*$(".closeDialog").click(function (e) {

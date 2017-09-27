@@ -329,6 +329,7 @@ abstract class Controller {
             foreach ($attributes as $attribute) {
                 $name = $attribute->getName();
                 if ($value = $params->get($name)) {
+                    error_log("SavedInSession: " . var_export(($name), true) . " - " . var_export(($value), true));
                     if ($attribute->getType() == Attribute::TYPE_DROPDOWN ||
                             $attribute->getType() == Attribute::TYPE_DROPDOWN_MULTIPLE
                     ) {
@@ -394,9 +395,10 @@ abstract class Controller {
 //                                }
 //                            }
                             foreach ($this->model->getAttributes() as $atributo) {
-                                if(strpos($atributo->getName(), 'otherus') !== false || strpos($atributo->getName(), 'publication') !== false ||
-                                        strpos($atributo->getName(), 'readership') !== false){
-                                        $session->setAttribute($atributo->getName(), $params->get($atributo->getName()));
+
+                                if(strpos($atributo->getName(), 'otherus') !== false || strpos($atributo->getName(), 'publication') !== false || strpos($atributo->getName(), 'readership') !== false){
+                                    error_log("CSM--- 26092017_" . $atributo->getName() . " - " . $atributo->getValue());
+                                    $session->setAttribute($atributo->getName(), $params->get($atributo->getName()));
                                 }
                                 if(isset($_SESSION['mf']) && $_SESSION['mf']){
                                     if(strpos($atributo->getName(), 'profile') !== false){
@@ -434,7 +436,8 @@ abstract class Controller {
                                             $attr->getType() == Attribute::TYPE_CHECKBOX 
                                             || $attr->getType() == Attribute::TYPE_CONTACTCHANGE
                                     ) {
-                                        $mapping[$cdbName] = (strtolower($attr->getValue()) == 'on' || strtolower($attr->getValue()) == 'yes') ? 'true' : 'false';
+                                        $mapping[$cdbName] = (strtolower($attr->getValue()) == 'true' || strtolower($attr->getValue()) == 'on' || strtolower($attr->getValue()) == 'yes') ? 'true' : 'false';
+                                        error_log("CSM 26092017_" . $attr->getName() . " - " . $attr->getValue());
                                     } elseif ($attr->getType() == Attribute::TYPE_DROPDOWN || $attr->getType() == Attribute::TYPE_DROPDOWN_MULTIPLE) {
                                         $mapping[$cdbName] = $attr->getSelectedValues();
 
@@ -658,12 +661,23 @@ abstract class Controller {
         //        $result = ! empty ($otherUsers) ? $result . 'otherusers=' . substr($updatedValues, 0, -1) : substr($result, 0, -1);
         error_log("PARAMS: " . var_export($params, true));
         error_log("SESSION: " . var_export($_SESSION, true));
-        $result = array(
-            'id' => $params->get('session_id'),
-            'auth' => $_SESSION['auth'],
-            'fields' => $normalValues
-//            'fields' => substr($updatedValues, 0, -1)
-        );
+
+
+        if (isset($_SESSION['auth'])) {
+            $result = array(
+                'id' => $params->get('session_id'),
+                'auth' => $_SESSION['auth'],
+                'fields' => $normalValues
+            );
+        } else {
+            $result = array(
+                'id' => $params->get('session_id'),
+                'auth' => $params->get('session_id'),
+                'fields' => $normalValues
+            );
+        }
+
+
 
         if ($params->getUrlParamValue('no_session_id')) {
             unset($result['id']);
@@ -769,7 +783,9 @@ abstract class Controller {
         $attributes = $this->model->getAttributes();
         foreach ($attributes as $kAttr => $attr) {
             $name = $attr->getName();
+
             if(strpos($name, 'publication') !== false || strpos($name, 'readership') !== false){
+
                 $session->setAttribute($name, $params->get($name));
                 $params->set($name, $params->get($name), true);
 //                $_POST[$name] = $params->get($name);
@@ -787,7 +803,9 @@ abstract class Controller {
             if (isset($_POST[$name])){
                 $value = $_POST[$name];
             }
+
             if (isset($value)) {
+
                 switch ($attr->getType()) {
                     case Attribute::TYPE_DROPDOWN:
                         $attr->setSelectedValues($value);
@@ -865,10 +883,10 @@ abstract class Controller {
         $params = Parameters::getInstance();
         $MyId = $params->getUrlParamValue('session_id');
         if (preg_match('/^\{?[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}\}?$/', $MyId)) {
-            error_log("EVE_CSM_TEST" . var_export(($MyId), true));
+            //error_log("EVE_CSM_TEST" . var_export(($MyId), true));
 
             $requirements = $_GET['requirements'];
-            error_log("EVE_CSM_TEST2" . var_export(($requirements), true));
+            //error_log("EVE_CSM_TEST2" . var_export(($requirements), true));
 
             $currentModel = new Model("");
             $currentModel->updateRequirementsInCDB($MyId, $requirements);
