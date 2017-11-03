@@ -601,6 +601,7 @@ abstract class Controller {
                 }else if($key === 'osh_otheruseremail1'){
                     $otherUsers1 .= $value . '|';
                 }else if($key === 'osh_otheruserphone1'){
+                    $value = str_replace(" ", "%20", $value);
                     $otherUsers1 .= $value . '|';
                 }else if($key === 'osh_otheruserprefix1'){
                     if ($value != null)
@@ -612,6 +613,7 @@ abstract class Controller {
                 }else if($key === 'osh_otheruseremail2'){
                     $otherUsers2 .= $value . '|';
                 }else if($key === 'osh_otheruserphone2'){
+                    $value = str_replace(" ", "%20", $value);
                     $otherUsers2 .= $value . '|';
                 }else if($key === 'osh_otheruserprefix2'){
                     if ($value != null)
@@ -623,6 +625,7 @@ abstract class Controller {
                 }else if($key === 'osh_otheruseremail3'){
                     $otherUsers3 .= $value . '|';
                 }else if($key === 'osh_otheruserphone3'){
+                    $value = str_replace(" ", "%20", $value);
                     $otherUsers3 .= $value . '|';
                 }else if($key === 'osh_otheruserprefix3'){
                     if ($value != null)
@@ -634,6 +637,7 @@ abstract class Controller {
                 }else if($key === 'osh_otheruseremail4'){
                     $otherUsers4 .= $value . '|';
                 }else if($key === 'osh_otheruserphone4'){
+                    $value = str_replace(" ", "%20", $value);
                     $otherUsers4 .= $value . '|';
                 }else if($key === 'osh_otheruserprefix4'){
                     if ($value != null)
@@ -645,6 +649,7 @@ abstract class Controller {
                 }else if($key === 'osh_otheruseremail5'){
                     $otherUsers5 .= $value . '|';
                 }else if($key === 'osh_otheruserphone5'){
+                    $value = str_replace(" ", "%20", $value);
                     $otherUsers5 .= $value . '|';
                 }else if($key === 'osh_otheruserprefix5'){
                     if ($value != null)
