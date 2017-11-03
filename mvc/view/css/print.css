@@ -1,3 +1,7 @@
+body {
+    font-size: 19px;
+}
+
 button,
 input[type=submit],
 input[type=file],
