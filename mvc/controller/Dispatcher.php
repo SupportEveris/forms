@@ -24,7 +24,7 @@ class Dispatcher {
         }else{
             
 // Check the session ID
-        $sessionID = $this->checkSessionID();
+        $sessionID = $this->checkSessironID();
         }
 
         $route = $this->setRoute();
